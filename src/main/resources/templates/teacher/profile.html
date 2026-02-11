@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Profile</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" th:href="@{/profile_css/profile.css}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <header>
+    <h1><i class="bi bi-person-badge"></i> 教師プロフィール</h1>
+    <div class="icons">
+		<!-- 🌙 ダークモード切替ボタン -->
+<!--			<button id="darkModeToggle" style="background:none;border:none;font-size:22px;">-->
+<!--				<i id="darkIcon" class="bi bi-moon"></i>-->
+<!--			</button>-->
+
+      <a th:href="@{/teacher/settings}"><i class="bi bi-gear"></i> 設定</a>
+      <a th:href="@{/teacher/home}"><i class="bi bi-house"></i> ホーム</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 左側プロフィールカード -->
+    <section class="profile-card">
+      <p class="greeting">
+        今日も良い授業を！
+        <span th:text="${teacherName}"></span> 先生
+      </p>
+
+      <div class="profile-box">
+        <img th:src="@{/login.css/emoji.login.jpg}" alt="Teacher Photo" class="profile-photo">
+
+        <div class="info">
+          <label>名前</label>
+          <div class="info-box" th:text="${teacherName}"></div>
+
+          <label>教師番号</label>
+          <div class="info-box" th:text="${teacherNumber}"></div>
+
+<!--          <label>担当クラス</label>-->
+<!--          <div class="info-box" th:text="${teacherClass}">IT-A</div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <hr style="margin: 20px 0;">-->
+
+<!--       担当科目エリア -->
+<!--      <div class="attendance-box">-->
+<!--        <label>担当科目</label>-->
+<!--        <div class="info-box">-->
+<!--          <span th:text="${teacherSubject}">プログラミング基礎</span>-->
+<!--        </div>-->
+<!--      </div>-->
+    </section>
+
+    <!-- 右側 メール & パスワード -->
+    <aside class="menu">
+      <div class="input-row">
+        <i class="bi bi-envelope-fill icon"></i>
+        <span class="text" th:text="${teacherMail}"></span>
+      </div>
+
+      <div class="input-row">
+        <i class="bi bi-lock-fill icon"></i>
+        <input type="password" id="password" th:value="${teacherPass}" readonly class="password-field"/>
+        <button onclick="togglePassword()" class="eye-btn">
+          <i class="bi bi-eye-fill"></i>
+        </button>
+      </div>
+
+      <a th:href="@{/teacher/settings}" class="back-btn">
+        <i class="bi bi-arrow-left-circle"></i> 戻る
+      </a>
+    </aside>
+  </main>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+    
+  </script>
+  <!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+</body>
+</html>

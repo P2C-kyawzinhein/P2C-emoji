@@ -1,0 +1,152 @@
+/* === PC STYLE: Center and beautiful APP look === */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Yu Gothic", sans-serif;
+  background: #eef0ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADER */
+header {
+ background: linear-gradient(135deg, #6C63FF 0%, #8B85FF 55%, #BFA7FF 100%);
+  width: 100%;
+  padding: 14px 30px;
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* MAIN CENTER WRAPPER */
+main.settings {
+  margin-top: 60px;
+  width: 400px;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+
+/* BUTTONS */
+.settings a {
+  width: 100%;
+  padding: 16px 0;
+  text-align: center;
+  background: #e8e2ff;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #4d3db3;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  transition: 0.25s;
+}
+
+.settings a:hover {
+  background: #d5ccff;
+  transform: translateY(-2px);
+}
+
+/* Logout special */
+.logout-btn {
+  background: #ff8f9a !important;
+  color: #fff !important;
+}
+
+.logout-btn:hover {
+  background: #ff7b88 !important;
+}
+
+.settings i {
+  font-size: 22px;
+}
+.icons a {
+    display: none; 
+}
+
+
+header h1 {
+    font-size: 22px !important;
+}
+
+/* ===============================
+✅ スマホ用 ダークモード完全対応
+=============================== */
+@media (max-width: 768px) {
+
+  .dark-mode body,
+  body.dark-mode {
+    background: #0f1117 !important;
+    color: #e6e6e6 !important;
+  }
+
+  .dark-mode header {
+    background: linear-gradient(135deg, #2f2f52 0%, #3a3a66 60%, #4a3f78 100%);
+    color: #ffffff !important;
+  }
+
+  .dark-mode .profile-card {
+    background: #1e2233 !important;
+    color: #fff !important;
+  }
+
+  .dark-mode .greeting,
+  .dark-mode .info,
+  .dark-mode .info-box {
+    color: #fff !important;
+  }
+
+  .dark-mode .attendance-box {
+    background: #1a1d29 !important;
+    border-color: #353a66 !important;
+  }
+
+  .dark-mode .menu .menu-link {
+    background: #1b1f2f !important;
+    color: #e6e6e6 !important;
+    border-color: #333866 !important;
+  }
+
+  .dark-mode .menu .menu-link.active {
+    background: linear-gradient(90deg,#6a5cff,#4f46e5) !important;
+    color: #fff !important;
+  }
+
+  .dark-mode .settings {
+    background: #1e2233 !important;
+    border-color: #333 !important;
+  }
+
+  .dark-mode .settings a {
+    background: #2a2f55 !important;
+    color: #fff !important;
+    border-color: #444 !important;
+  }
+
+  .dark-mode .settings .logout-btn {
+    background: #5a2222 !important;
+    color: #fff !important;
+    border-color: #ff7373 !important;
+  }
+}

@@ -1,0 +1,256 @@
+/* ===== RESET ===== */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background: #f7f8ff;
+  font-family: "Yu Gothic", sans-serif;
+}
+
+/* CONTAINER CENTER */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#level-screen, #start-screen, #quiz-screen, #result-screen {
+  width: 100%;
+  max-width: 430px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* HIDDEN */
+.hidden { display: none; }
+
+/* HEADER-LIKE BACK BUTTON */
+
+
+/* LEVEL BUTTONS */
+.btn-level {
+  width: 85%;
+  margin: 10px auto;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid #b8b8f8;
+  background: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  transition: .25s;
+}
+
+.btn-level:hover { background: #ede9ff; }
+
+h2, h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* QUIZ UI */
+.question-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  border: 2px solid #dcd6ff;
+  margin-bottom: 16px;
+}
+
+.option {
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid #b8b8f8;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 12px;
+  margin-top: 10px;
+  transition: .25s;
+}
+
+.option.active {
+  background: #68d36c;
+  color: white;
+}
+
+.option.correct {
+  background: #59d869;
+  color: white;
+}
+
+.option.wrong {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* NEXT BUTTON */
+.btn-next {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #8d78ff;
+  color: white;
+  font-size: 18px;
+}
+
+.btn-next:disabled {
+  background: #cfc8ff;
+  color: #fff;
+}
+
+/* TIMER */
+#timer {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* PROGRESS BAR */
+#progressBarContainer {
+  width: 100%;
+  height: 14px;
+  background: #dcd6ff;
+  border-radius: 10px;
+}
+
+#progressBar {
+  height: 14px;
+  background: #8d78ff;
+  border-radius: 10px;
+  width: 0%;
+}
+
+/* RESULT SCREEN */
+#result-screen h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.btn-start {
+  width: 100%;
+  padding: 16px;
+  background: #8d78ff;
+  color: white;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* REMOVE KANJI EFFECT MOBILE */
+.kanji-bg {
+  display: none !important;
+}
+.back-btn {
+	  display: none !important;
+}
+/* =========================
+   🌙 DARK MODE - WHITE 完全除去 最終版
+   html に dark-mode が付く仕様用
+========================= */
+
+html.dark-mode,
+html.dark-mode body {
+  background: #0f0f18 !important;
+  color: #f2f2ff !important;
+}
+
+/* 🔹 すべての白背景を強制ダーク化 */
+html.dark-mode * {
+  background-color: transparent;
+}
+
+/* 🔹 個別に黒背景を再指定 */
+html.dark-mode #level-screen,
+html.dark-mode #start-screen,
+html.dark-mode #quiz-screen,
+html.dark-mode #result-screen,
+html.dark-mode main,
+html.dark-mode section,
+html.dark-mode div {
+  background: #0f0f18 !important;
+  color: #f2f2ff !important;
+}
+
+/* 🔹 カード・ボックス系 */
+html.dark-mode .question-box,
+html.dark-mode .btn-level,
+html.dark-mode .option,
+html.dark-mode .menu-link,
+html.dark-mode .back-btn {
+  background: #1c1c2b !important;
+  border-color: #5f5cff !important;
+  color: #ffffff !important;
+}
+
+/* 🔹 選択肢の状態 */
+html.dark-mode .option.active {
+  background: #3cb371 !important;
+}
+
+html.dark-mode .option.correct {
+  background: #2ecc71 !important;
+}
+
+html.dark-mode .option.wrong {
+  background: #ff6b6b !important;
+}
+
+/* 🔹 ボタン系 */
+html.dark-mode .btn-next,
+html.dark-mode .btn-start {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff) !important;
+  color: #ffffff !important;
+}
+
+html.dark-mode .btn-next:disabled {
+  background: #444466 !important;
+  color: #aaa !important;
+}
+
+/* 🔹 プログレスバー */
+html.dark-mode #progressBarContainer {
+  background: #2a2a44 !important;
+}
+
+html.dark-mode #progressBar {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff) !important;
+}
+
+/* 🔹 戻るボタン */
+html.dark-mode .back-btn {
+  background: #1f1f2f !important;
+  border-color: #5f5cff !important;
+  color: #cfcfff !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.55) !important;
+}
+#result-screen {
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.result-text {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 25px 0;
+    line-height: 1.6;
+}
+
+.pass {
+    color: #28a745; /* Green */
+    text-shadow: 0 0 10px rgba(0,255,0,0.4);
+}
+
+.fail {
+    color: #ff4b4b; /* Red */
+    text-shadow: 0 0 10px rgba(255,0,0,0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+

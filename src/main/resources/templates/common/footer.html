@@ -1,0 +1,123 @@
+<!-- footer.html -->
+<footer>
+  <style>
+	  
+    footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: env(safe-area-inset-bottom);
+      z-index: 9999;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 18px 18px;
+
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .footer-nav a.active ion-icon {
+  background: linear-gradient(90deg,#caa9ff,#a98bff);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(138,85,255,0.25);
+  border-radius: 14px;
+  padding: 6px;
+  transform: scale(1.2);
+  
+}
+
+
+
+    .footer-nav a {
+      font-size: 36px;
+      text-decoration: none;
+      line-height: 1;
+      transition: transform 0.15s ease, color 0.15s ease;
+      color: #333;
+    }
+
+    .footer-nav a.active {
+      color: #6C63FF;
+      transform: scale(1.2);
+    }
+    
+    
+    html.dark-mode .footer-nav,
+    body.dark-mode .footer-nav {
+      background: rgba(30, 30, 30, 0.9);
+    }
+
+    html.dark-mode .footer-nav a,
+    body.dark-mode .footer-nav a {
+      color: #ffffff;
+    }
+
+    html.dark-mode .footer-nav a.active,
+    body.dark-mode .footer-nav a.active {
+      color: #9fa4ff;
+    }
+
+    @media (min-width: 769px) {
+      footer {
+        display: none;
+      }
+    }
+
+    body {
+      padding-bottom: 110px;
+    }
+    /* ✅ DARK MODE: active icon 色*/
+html.dark-mode .footer-nav a.active ion-icon,
+body.dark-mode .footer-nav a.active ion-icon {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(79,70,229,0.55);
+}
+
+  </style>
+
+  <nav class="footer-nav">
+  <a th:href="@{/student/schedule}"  data-path="/student/schedule">
+    <ion-icon name="calendar-outline"></ion-icon>
+  </a>
+
+  <a th:href="@{/student/timetable}" data-path="/student/timetable">
+    <ion-icon name="time-outline"></ion-icon>
+  </a>
+
+  <a th:href="@{/student/notices}"  data-path="/student/notices">
+    <ion-icon name="notifications-outline"></ion-icon>
+  </a>
+
+  <a th:href="@{/student/reports}"  data-path="/student/reports">
+    <ion-icon name="mail-outline"></ion-icon>
+  </a>
+
+  <a th:href="@{/student/quiz}"     data-path="/student/quiz">
+    <ion-icon name="game-controller-outline"></ion-icon>
+  </a>
+</nav>
+
+
+<script>
+  (function () {
+    const current = location.pathname.replace(/\/+$/, "");
+
+    document.querySelectorAll(".footer-nav a").forEach(a => {
+      const linkPath = new URL(a.href, location.origin).pathname.replace(/\/+$/, "");
+
+      if (current === linkPath || current.startsWith(linkPath + "/")) {
+        a.classList.add("active");
+      } else {
+        a.classList.remove("active");
+      }
+    });
+  })();
+</script>
+
+</footer>

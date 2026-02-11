@@ -1,0 +1,512 @@
+/* Moving Kanji Animation Styles */
+
+
+/* Background container */
+.kanji-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -1;
+	pointer-events: none;
+}
+
+/* Individual moving kanji */
+.kanji-item {
+	position: absolute;
+	font-size: 120px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.08);
+	white-space: nowrap;
+	animation: drift 18s linear infinite;
+}
+
+@keyframes drift {
+	from {
+		transform: translateX(20%);
+	}
+
+	to {
+		transform: translateX(1020%);
+	}
+}
+
+/*basic*/
+body {
+	font-family: "Yu Gothic", sans-serif;
+	background: #f4f4ff;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ------------------------------------
+   HOME ボタン
+------------------------------------ */
+.home-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: #7d5cf4;
+	color: white;
+	border: none;
+	border-radius: 25px;
+	padding: 12px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all 0.25s ease;
+	box-shadow: 0 6px 18px rgba(125, 92, 244, 0.3);
+}
+
+.home-btn:hover {
+	background: #a794ff;
+	transform: translateY(-3px);
+	box-shadow: 0 9px 22px rgba(125, 92, 244, 0.4);
+}
+
+/*戻るボタン*/
+
+.back-btn {
+	position: fixed;
+	top: 20px;
+	left: 30px;
+	background-color: #6a44e3;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	z-index: 10;
+	text-decoration: none;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn:hover {
+	background: #f1eaff;
+	/* マウスが上に来ると色変わる */
+	color: #6a44e3;
+	transform: translateY(-4px);
+	box-shadow: 0 6px 15px rgba(106, 68, 227, 0.4);
+}
+
+/* ------------------------------------
+   LEVEL SELECT SCREEN
+------------------------------------ */
+/*#level-screen {*/
+/*	text-align: center;*/
+/*	margin-top: 100px;*/
+/*}*/
+#level-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ gap: 5px;
+  width: 750px;      /* 横幅を固定で広くする（約20cm） */
+  margin: 0 auto;    /* 中央に配置 */
+}
+.btn-level {
+  width: 100%;       /* 親の幅いっぱいに広がる */
+  max-width: 100%; 
+}
+
+.btn-level {
+	font-size: 20px;
+	margin: 10px;
+	padding: 15px 40px;
+	border-radius: 14px;
+	border: none;
+	cursor: pointer;
+	background: #ffffff;
+	border: 2px solid #b8b8f8;
+	transition: 0.3s;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-level:hover {
+	background: #eae6ff;
+	transform: translateY(-3px);
+}
+
+/* ------------------------------------
+   START SCREEN
+------------------------------------ */
+#start-screen {
+	text-align: center;
+	margin-top: 120px;
+}
+
+#start-screen button {
+	background: #7d5cf4;
+	color: white;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 14px;
+	cursor: pointer;
+	font-size: 22px;
+	transition: 0.3s;
+	box-shadow: 0 6px 18px rgba(125, 92, 244, 0.3);
+}
+
+#start-screen button:hover {
+	background: #a794ff;
+	transform: translateY(-4px);
+}
+
+/* ------------------------------------
+   QUIZ SCREEN
+------------------------------------ */
+#quiz-screen {
+	width: 90%;
+	max-width: 700px;
+	margin: 50px auto;
+	background: #fff;
+	border-radius: 20px;
+	padding: 40px;
+	box-shadow: 0 6px 16px rgba(0, 0, 50, 0.08);
+	animation: fadeIn 0.3s ease;
+}
+
+/* フェードイン */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#progress {
+	font-size: 20px;
+	margin-bottom: 15px;
+	color: #555;
+}
+
+.question-box h2 {
+	font-size: 26px;
+	margin-bottom: 15px;
+	font-weight: bold;
+	color: #333;
+}
+
+/* ------------------------------------
+   TIMER
+------------------------------------ */
+#timer {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	color: #7d5cf4;
+}
+
+/* ------------------------------------
+   PROGRESS BAR
+------------------------------------ */
+#progressBarContainer {
+	width: 85%;
+	height: 12px;
+	background-color: #e2e2ff;
+	border-radius: 8px;
+	margin: 20px auto;
+}
+
+#progressBar {
+	height: 100%;
+	width: 0%;
+	background: linear-gradient(90deg, #7d5cf4, #a794ff);
+	border-radius: 8px;
+	transition: width 0.4s ease;
+}
+
+/* ------------------------------------
+   OPTIONS（回答ボタン）
+------------------------------------ */
+.option {
+	display: block;
+	background: white;
+	padding: 16px;
+	border-radius: 10px;
+	margin: 12px 0;
+	cursor: pointer;
+	font-size: 18px;
+	border: 2px solid #dad5ff;
+	transition: 0.25s;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.option:hover {
+	background: #f3f0ff;
+	transform: translateY(-2px);
+}
+
+/* 選択中 */
+.option.active {
+	background: #e8e2ff;
+	border: 2px solid #7d5cf4;
+}
+
+/* 正解 */
+.option.correct {
+	background: #4caf50 !important;
+	border-color: #2e7d32 !important;
+	color: #fff !important;
+}
+
+/* 不正解 */
+.option.wrong {
+	background: #e53935 !important;
+	border-color: #b71c1c !important;
+	color: #fff !important;
+}
+
+/* 正解テキスト */
+#correctText {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 12px 0;
+	color: #333;
+}
+
+/* ------------------------------------
+   NEXT BUTTON
+------------------------------------ */
+#nextBtn {
+	background: #7d5cf4;
+	color: white;
+	padding: 14px 30px;
+	border: none;
+	border-radius: 12px;
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 20px;
+	transition: 0.3s;
+}
+
+#nextBtn:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+#nextBtn:hover:not(:disabled) {
+	background: #a794ff;
+	transform: translateY(-3px);
+}
+
+/* ------------------------------------
+   RESULT SCREEN
+------------------------------------ */
+#result-screen {
+	text-align: center;
+	margin-top: 120px;
+}
+
+#result-screen h2 {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+
+#resultText {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+#result-screen button {
+	background: #7d5cf4;
+	color: white;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 14px;
+	cursor: pointer;
+	font-size: 22px;
+	transition: 0.3s;
+}
+
+#result-screen button:hover {
+	background: #a794ff;
+	transform: translateY(-3px);
+}
+
+
+/* ============================
+   🌙 Dark Mode - QUIZ DESIGN
+============================ */
+
+/* 背景 */
+.dark-mode body {
+	background: #0f1117;
+	color: #f0f0f0;
+}
+
+/* 流れる漢字（薄く光らせる） */
+.dark-mode .kanji-item {
+	color: rgba(255, 255, 255, 0.06);
+}
+
+/* Homeボタン */
+.dark-mode .home-btn {
+	background: linear-gradient(90deg, #6a5cff, #4834ff);
+	box-shadow: 0 6px 18px rgba(100, 100, 255, 0.4);
+}
+
+.dark-mode .home-btn:hover {
+	background: linear-gradient(90deg, #8f84ff, #6250ff);
+}
+
+/* 戻るボタン */
+.dark-mode .back-btn {
+	background: #4330ff;
+	color: #fff;
+}
+
+.dark-mode .back-btn:hover {
+	background: #6a5cff;
+	color: white;
+}
+
+/* レベルボタン */
+.dark-mode .btn-level {
+	background: #1c1f2b;
+	color: #fff;
+	border: 2px solid #6a5cff;
+}
+
+.dark-mode .btn-level:hover {
+	background: #2b2f44;
+}
+
+/* スタートボタン */
+.dark-mode #start-screen button {
+	background: linear-gradient(90deg, #6a5cff, #4330ff);
+}
+
+.dark-mode #start-screen button:hover {
+	background: linear-gradient(90deg, #8f84ff, #6250ff);
+}
+
+/* クイズカード */
+.dark-mode #quiz-screen {
+	background: #1c1f2b;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* 進捗・問題文 */
+.dark-mode #progress {
+	color: #bbb;
+}
+
+.dark-mode .question-box h2 {
+	color: #fff;
+}
+
+/* タイマー */
+.dark-mode #timer {
+	color: #9da2ff;
+}
+
+/* プログレスバー */
+.dark-mode #progressBarContainer {
+	background-color: #333;
+}
+
+.dark-mode #progressBar {
+	background: linear-gradient(90deg, #6a5cff, #8f84ff);
+}
+
+/* 選択肢 */
+.dark-mode .option {
+	background: #2a2d3a;
+	color: #fff;
+	border: 2px solid #444;
+}
+
+.dark-mode .option:hover {
+	background: #3a3f55;
+}
+
+.dark-mode .option.active {
+	background: #3f3cff;
+	border-color: #9da2ff;
+}
+
+/* 正解・不正解 */
+.dark-mode .option.correct {
+	background: #2e7d32 !important;
+	border-color: #1b5e20 !important;
+}
+
+.dark-mode .option.wrong {
+	background: #c62828 !important;
+	border-color: #8e0000 !important;
+}
+
+/* 正解テキスト */
+.dark-mode #correctText {
+	color: #fff;
+}
+
+/* 次へボタン */
+.dark-mode #nextBtn {
+	background: linear-gradient(90deg, #6a5cff, #4330ff);
+}
+
+.dark-mode #nextBtn:hover:not(:disabled) {
+	background: linear-gradient(90deg, #8f84ff, #6250ff);
+}
+
+.dark-mode #nextBtn:disabled {
+	background: #444;
+}
+
+/* 結果画面 */
+.dark-mode #result-screen h2,
+.dark-mode #resultText {
+	color: #fff;
+}
+
+.dark-mode #result-screen button {
+	background: linear-gradient(90deg, #6a5cff, #4330ff);
+}
+
+.dark-mode #result-screen button:hover {
+	background: linear-gradient(90deg, #8f84ff, #6250ff);
+}
+
+#result-screen {
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.result-text {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 25px 0;
+    line-height: 1.6;
+}
+
+.pass {
+    color: #28a745; /* Green */
+    text-shadow: 0 0 10px rgba(0,255,0,0.4);
+}
+
+.fail {
+    color: #ff4b4b; /* Red */
+    text-shadow: 0 0 10px rgba(255,0,0,0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}

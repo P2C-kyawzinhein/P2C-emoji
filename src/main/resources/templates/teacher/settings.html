@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>設定</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/home_css/home.css}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+	<!-- ===== ヘッダー ===== -->
+	<header>
+		<h1><i class="bi bi-house"></i>ホーム</h1>
+
+		<div class="icons">
+
+			<!-- 🌙 ダークモード切替ボタン -->
+			<button id="darkModeToggle" class="light-toggle" style="background:none;border:none;font-size:22px;">
+				<i id="darkIcon" class="bi bi-moon"></i>
+			</button>
+
+			<!--			<button id="darkModeToggle" style="background:none;border:none;font-size:22px;">-->
+			<!--				<i id="darkIcon" class="bi bi-moon"></i>-->
+			<!--			</button>-->
+
+			<a th:href="@{/teacher/settings}"><i class="bi bi-gear"></i> 設定</a>
+			<a th:href="@{/teacher/home}"><i class="bi bi-house"></i> ホーム</a>
+		</div>
+	</header>
+
+
+	<!-- ===== メイン ===== -->
+	<main class="settings">
+		<a th:href="@{/teacher/profile}" class="profile-btn"><i class="bi bi-person"></i> プロフィール</a>
+		<a th:href="@{/teacher/register}" class="register-btn"><i class="bi bi-person-plus"></i> 生徒用 新規登録</a>
+		<a th:href="@{/teacher/register/teacher}" class="teacher-register-btn"><i class="bi bi-person-badge"></i> 先生用
+			新規登録</a>
+		<a th:href="@{/teacher/quiz/register}" class="quiz-register-btn"><i class="bi bi-question-circle"></i> クイズ登録</a>
+		<a th:href="@{/login}" class="logout-btn"><i class="bi bi-arrow-left-circle"></i> ログアウト</a>
+	</main>
+
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+
+</body>
+
+</html>

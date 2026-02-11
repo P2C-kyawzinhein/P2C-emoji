@@ -1,0 +1,132 @@
+body {
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* 背景の丸デザイン */
+.circle {
+  position: absolute;
+  background-color: #6a44e3;
+  border-radius: 50%;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+/*まるの置く場所左がわ*/
+.circle.left {
+  width: 400px;
+  height: 400px;
+  left: -150px;
+  top: 100px;
+}
+/*まるの置く場所右がわ*/
+.circle.right {
+  width: 400px;
+  height: 400px;
+  right: -150px;
+  bottom: 100px;
+}
+
+/* マウス上に来ると少し動く*/
+.circle:hover {
+  background: #7b5df3;
+  transform: scale(1.05);
+}
+
+.login-container {
+    z-index: 10;
+    text-align: center;
+    width: 350px;
+}
+
+/*ログイン機能の上のロゴ*/
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.4s ease-in-out; /* 0.4 秒大きくなる */
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  transform: scale(1.15); /* 大きさ */
+}
+
+
+.user-icon {
+    font-size: 100px;
+    color: #6a44e3;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d6c8f7;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    background-color: #e2d6fa;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: #6a44e3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #5737be;
+}
+
+.forgot {
+    display: block;
+    margin-top: 15px;
+    color: #6a44e3;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+.error-text {
+    color: red;
+    margin-top: 10px;
+}

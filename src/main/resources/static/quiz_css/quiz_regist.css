@@ -1,0 +1,250 @@
+
+body {
+  font-family: "Yu Gothic", sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #b8b8f8;
+  display: flex;
+  justify-content: center;
+  padding: 20px 40px;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  padding: 12px 24px;
+  border: 2px solid paleturquoise;
+  border-radius: 12px;
+  color: white;
+}
+/* Homeボタン */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background-color: #6a44e3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn:hover {
+  background: #f1eaff;  /* マウスが上に来ると色変わる */ 
+  color: #6a44e3;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(106, 68, 227, 0.4);
+}
+
+/* FORM CONTAINER */
+.quiz-register {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #f8f8ff;
+  border: 1px solid #dcd6ff;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.quiz-register form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-register label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.quiz-register input[type="text"],
+.quiz-register select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #dcd6ff;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.quiz-register input[type="text"]:focus,
+.quiz-register select:focus {
+  outline: none;
+  border-color: #b8b8f8;
+  box-shadow: 0 0 4px rgba(184,184,248,0.6);
+}
+
+/*SUBMIT BUTTON */
+.quiz-register button {
+  width: 100%;
+  padding: 14px;
+  background: #b8b8f8;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.quiz-register button:hover {
+  background: #9d9df7;
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE*/
+@media (max-width: 600px) {
+  .quiz-register {
+    padding: 25px;
+  }
+}
+/* ====== Dark Mode 全体テーマ ====== */
+.dark-mode body {
+  background: #222;   
+  color: #f0f0f0;      
+}
+
+.dark-mode header {
+  background: #2d2d40;
+  color: #fff;
+}
+
+.dark-mode .profile-card {
+  background: #333366;
+  color: white;
+}
+.dark-mode .info{
+	color: white;
+}
+.dark-mode .info-box{
+	color: white;
+}
+.dark-mode .greeting{
+	color: white;
+}
+
+
+.dark-mode .menu .menu-link {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .menu .menu-link:hover {
+  background: #3a3a3a;
+}
+
+.dark-mode .menu .menu-link.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+}
+/* =========================================
+   🔥 ダークモードボタンをクリック可能にする設定
+   ========================================= */
+#darkModeToggle {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#darkIcon {
+    pointer-events: none;
+}
+
+.icons {
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================
+   🌙 Quiz Register Dark Mode
+   ========================= */
+
+/* 背景と文字 */
+.dark-mode {
+  background: #181818;
+  color: #f0f0f0;
+}
+
+/* ヘッダー */
+.dark-mode header {
+  background: #24243a;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+.dark-mode header h1 {
+  border-color: #6fd6ff;
+  color: #fff;
+}
+
+/* Homeボタン */
+.dark-mode .back-btn {
+  background: #4d3cff;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.dark-mode .back-btn:hover {
+  background: #2e2e50;
+  color: #fff;
+}
+
+/* フォーム外枠 */
+.dark-mode .quiz-register {
+  background: #222;
+  border-color: #555;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+/* ラベル */
+.dark-mode .quiz-register label {
+  color: #fff;
+}
+
+/* input / select */
+.dark-mode .quiz-register input[type="text"],
+.dark-mode .quiz-register select {
+  background: #333;
+  color: #fff;
+  border-color: #666;
+}
+
+.dark-mode .quiz-register input::placeholder {
+  color: #bbb;
+}
+
+.dark-mode .quiz-register input[type="text"]:focus,
+.dark-mode .quiz-register select:focus {
+  border-color: #8b8bff;
+  box-shadow: 0 0 6px rgba(139,139,255,0.8);
+}
+
+/* 送信ボタン */
+.dark-mode .quiz-register button {
+  background: linear-gradient(90deg,#6f5cff,#4330ff);
+  color: #fff;
+}
+
+.dark-mode .quiz-register button:hover {
+  background: linear-gradient(90deg,#5745ff,#2f1fff);
+}

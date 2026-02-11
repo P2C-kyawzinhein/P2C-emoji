@@ -1,0 +1,303 @@
+/* --------- 全体設定 --------- */
+body {
+  font-family: "Yu Gothic", sans-serif; /* 日本語でも見やすいフォント */
+  background: #fff; /* 背景は白 */
+  margin: 0;
+  padding: 0;
+}
+
+/* --------- ヘッダー --------- */
+/* ========== HEADER ========== */
+header {
+  background-color: #b8b8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  padding: 12px 24px;
+  border: 2px solid paleturquoise;
+  border-radius: 12px;
+  color: white;
+
+  
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 25px;
+
+}
+
+.icons a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 
+    color 0.4s ease,
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+/* hマウス来ると変わる */
+.icons a:hover {
+  color: darkblue; /* マウス来ると変わる色 */
+  transform: translateY(-3px) scale(1.05);
+  opacity: 1;
+}
+
+/* アンダーライン*/
+.icons a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: darkblue;
+  transition: width 0.4s ease;
+}
+
+.icons a:hover::after {
+  width: 100%;
+}
+
+/* --------- 時間割ボックス --------- */
+.timetable {
+  background-color: #b8b8f8; /* 枠の背景を紫系に */
+  margin: 50px; /* 外側の余白 */
+  padding: 30px; /* 内側の余白 */
+  border-radius: 25px; /* 角を丸くする */
+  width: 45%; /* 横幅の45% */
+  float: left; /* 左側に配置 */
+}
+
+/* --------- 曜日ボタン --------- */
+.days button {
+  background: white;
+  border: 1px solid #999;
+  border-radius: 6px;
+  margin-right: 5px;
+  padding: 8px 14px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* 選択中（アクティブ）のボタン */
+.days .active {
+  background: #8e6ef7; /* 紫色で強調 */
+  color: white;
+  border: none;
+}
+
+/* --------- ドロップダウン --------- */
+.dropdown {
+  margin-top: 20px;
+  position: relative;
+}
+
+/* ドロップダウンのボタン */
+.dropdown-btn {
+  width: 100%;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease; /* ホバー時にスムーズな動き */
+}
+
+/* ホバーしたときの色変化 */
+.dropdown-btn:hover {
+  background: #ede7ff;
+}
+
+/* 開いたときの中身 */
+.dropdown-content {
+  display: none; /* 最初は非表示 */
+  background: #f6f3ff;
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 8px;
+}
+
+/* ドロップダウンの中のリンク */
+.dropdown-content a {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+/* マウスを乗せたときの背景 */
+.dropdown-content a:hover {
+  background: #e2d9ff;
+}
+
+/* --------- サイドメニュー --------- */
+.menu {
+  float: right; /* 右側に配置 */
+  width: 35%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* メニューのボタン風リンク */
+.menu .menu-link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  border: 1px solid #dcd6ff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 12px auto;
+  width: 80%;
+  transition: all 0.25s ease; /* ホバー時にスムーズな動き */
+}
+
+/* ホバー時のふわっと浮く動き */
+.menu .menu-link:hover {
+  background: #f1eaff;
+  transform: translateY(-4px);
+}
+
+/* 現在選択中のメニュー（アクティブ） */
+.menu .menu-link.active {
+  background: linear-gradient(90deg,#caa9ff,#a98bff); /* グラデーション背景 */
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(138,85,255,0.25); /* 影で立体感 */
+  border: none;
+}
+/* Dark Mode 時のボタン */
+.dark-mode .dark-toggle {
+  background: #444;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(255,255,255,0.2);
+}
+/* ====== Dark Mode 全体テーマ ====== */
+.dark-mode body {
+  background: #222;   
+  color: #f0f0f0;      
+}
+
+.dark-mode header {
+  background: #2d2d40;
+  color: #fff;
+}
+
+.dark-mode .profile-card {
+  background: #333366;
+  color: white;
+}
+.dark-mode .info{
+	color: white;
+}
+.dark-mode .info-box{
+	color: white;
+}
+.dark-mode .greeting{
+	color: white;
+}
+
+
+.dark-mode .menu .menu-link {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .menu .menu-link:hover {
+  background: #3a3a3a;
+}
+
+.dark-mode .menu .menu-link.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+}
+/* =========================================
+   🔥 ダークモードボタンをクリック可能にする設定
+   ========================================= */
+#darkModeToggle {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#darkIcon {
+    pointer-events: none;
+}
+
+.icons {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* =======================
+      🌙 Dark Mode 対応
+======================= */
+
+/* hマウス:hover色反転 */
+.dark-mode .icons a:hover {
+  color: #9fc5ff;
+}
+.dark-mode .icons a::after {
+  background-color: #9fc5ff;
+}
+
+/* 時間割ボックス */
+.dark-mode .timetable {
+  background-color: #2f2f4f;
+  color: white;
+}
+
+/* 曜日ボタン */
+.dark-mode .days button {
+  background: #3b3b3b;
+  border: 1px solid #777;
+  color: #fff;
+}
+.dark-mode .days button:hover {
+  background: #555;
+}
+.dark-mode .days .active {
+  background: #6d4cff;
+  color: white;
+}
+
+/* ドロップダウンボタン */
+.dark-mode .dropdown-btn {
+  background: #3a3a3a;
+  color: #fff;
+}
+.dark-mode .dropdown-btn:hover {
+  background: #4a4a4a;
+}
+
+/* ドロップダウン開いた中身 */
+.dark-mode .dropdown-content {
+  background: #2e2e2e;
+}
+.dark-mode .dropdown-content a {
+  color: #fff;
+}
+.dark-mode .dropdown-content a:hover {
+  background: #5249c7;
+}
+
+
+
+

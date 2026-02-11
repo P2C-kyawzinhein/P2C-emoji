@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホーム</title>
+
+  <!-- PC CSS -->
+  <link rel="stylesheet" th:href="@{/profile_css/profile.css}"
+        media="screen and (min-width: 769px)">
+
+  <!-- Mobile CSS -->
+  <link rel="stylesheet" th:href="@{/profile_css/profile_sp.css}"
+        media="screen and (max-width: 768px)">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</head>
+
+<body>
+
+	<header>
+		<h1><i class="bi bi-person"></i> プロフィール</h1>
+		<div class="icons">
+			<a th:href="@{/student/settings}"><i class="bi bi-gear"></i></a>
+			<a th:href="@{/student/home}"><i class="bi bi-house"></i></a>
+		</div>
+	</header>
+
+
+	<main>
+		<!-- 左側プロフィールカード  -->
+		<section class="profile-card">
+			<p class="greeting">
+				今日も頑張りましょう！
+				<span th:text="${studentName}"></span> さん
+			</p>
+
+			<div class="profile-box">
+				<img th:src="@{/login.css/emoji.login.jpg}" alt="Student Photo" class="profile-photo">
+
+				<div class="info">
+					<label>名前</label>
+					<div class="info-box" th:text="${studentName}"></div>
+
+					<label>学生番号</label>
+					<div class="info-box" th:text="${studentNumber}"></div>
+				</div>
+			</div>
+
+			<hr style="margin: 20px 0;">
+			<!-- ===== 出席率エリア ===== -->
+			<div class="attendance-box">
+  <label>出席率</label>
+
+  <div class="rate-text">
+    <span th:text="${attendanceRate}"></span>%
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar"
+         th:style="'width:' + ${attendanceRate} + '%'"
+         th:classappend="
+            ${attendanceRate} < 50 ? ' low' :
+            (${attendanceRate} < 75 ? ' mid' : ' high')">
+    </div>
+  </div>
+</div>
+
+		</section>
+
+
+
+		<!-- 右側メール & パスワー -->
+		<aside class="menu">
+			<div class="input-row">
+				<i class="bi bi-envelope-fill icon"></i>
+				<span class="text" th:text="${studentMail}"></span>
+
+			</div>
+
+			<!-- パスワード -->
+			<div class="input-row">
+				<i class="bi bi-lock-fill icon"></i>
+				<input type="password" id="password" th:value="${studentPass}" readonly class="password-field" />
+				<button onclick="togglePassword()" class="eye-btn">
+					<i class="bi bi-eye-fill"></i></button>
+			</div>
+
+
+			<a th:href="@{/student/settings}" class="back-btn">
+				<i class="bi bi-arrow-left-circle"></i> 戻る
+			</a>
+		</aside>
+	</main>
+
+	<script>
+		function togglePassword() {
+			const pwd = document.getElementById("password");
+			pwd.type = pwd.type === "password" ? "text" : "password";
+		}
+	</script>
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+	<!-- 共通Footer -->
+  <div th:replace="common/footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>報告</title>
+
+  <!-- PC CSS -->
+  <link rel="stylesheet" th:href="@{/report_css/report.css}" 
+        media="screen and (min-width: 769px)">
+
+  <!-- Mobile CSS -->
+  <link rel="stylesheet" th:href="@{/report_css/report_sp.css}" 
+        media="screen and (max-width: 768px)">
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+
+<body>
+	<!-- ＝＝＝＝＝＝ ヘッダー ＝＝＝＝＝＝ -->
+	<header>
+		<h1>報告</h1>
+		<div class="icons">
+			<a th:href="@{/student/settings}"><i class="bi bi-gear"></i></a>
+			<a th:href="@{/student/home}"><i class="bi bi-house"></i></a>
+		</div>
+	</header>
+	<main>
+		<section class="report">
+			<div>
+				<a th:href="'https://docs.google.com/forms/d/e/1FAIpQLSdhaHRE4C4hSFn62Gu2Uz6c3Mifd7PfrLfD4Hy_Masa4zLl5g/viewform?usp=header'"
+					target="_blank" class="menu-link">🌐VISA更新</a>
+				<br>
+				<a th:href="'https://docs.google.com/forms/d/e/1FAIpQLSehvm5PIGe3eQoNaAONTq1rvx8CKrL1q8cfMX3RlTrsrQLCSw/viewform?usp=header'"
+					target="_blank" class="menu-link">🧑‍💼アルバイト報告</a>
+				<br>
+				<a th:href="'https://docs.google.com/forms/d/e/1FAIpQLScvI0rMjSk938r9PnjlyrhJZCgQf_26mHd9VQqJFngvPaydlw/viewform?usp=header'"
+					target="_blank" class="menu-link">📝JLPT報告</a>
+				<br>
+				<a th:href="'https://docs.google.com/forms/d/e/1FAIpQLScdf9DUunIjCAucuF_u5X93WudSilznSb-7qY8rTNP1-zkhcg/viewform?usp=dialog'"
+					target="_blank" class="menu-link">🏠住所変更</a>
+				<br>
+				<a th:href="'https://docs.google.com/forms/d/e/1FAIpQLSe4ilblOTBetJE0c5TSjEXZB0z0ONeeQrn6MV3jBNC76-wESw/viewform?usp=header'"
+					target="_blank" class="menu-link">💬その他・相談</a>
+			</div>
+		</section>
+		<!--    サイドメニュー（右側）-->
+			<aside class="menu">
+			<a th:href="@{/student/schedule}" class="menu-link">年間スケジュール📅</a>
+			<a th:href="@{/student/timetable}" class="menu-link">時間割🟣</a>
+			<a th:href="@{/student/notices}" class="menu-link">お知らせ🔔</a>
+			<a th:href="@{/student/reports}" class="menu-link active">報告📨</a>
+			<a th:href="@{/student/quiz}" class="menu-link">クイズゲーム🎮</a>
+		</aside>
+	</main>
+	<!--  JavaScript -->
+	<script>
+		// ▼ ドロップダウンを開閉する
+		function toggleMenu(id) {
+			const menu = document.getElementById(id);
+			const isVisible = menu.style.display === "block";
+			document.querySelectorAll(".dropdown-content").forEach(m => m.style.display = "none");
+			menu.style.display = isVisible ? "none" : "block";
+		}
+
+		// ▼ 曜日を切り替える
+		function showDay(dayId, btn) {
+			document.querySelectorAll('.day').forEach(day => day.style.display = 'none');
+			document.getElementById(dayId).style.display = 'block';
+			document.querySelectorAll('.days button').forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+		}
+	</script>
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+	<!-- 共通Footer -->
+  <div th:replace="common/footer"></div>
+</body>
+
+</html>

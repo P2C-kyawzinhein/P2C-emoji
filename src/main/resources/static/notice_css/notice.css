@@ -1,0 +1,619 @@
+/* --------- 全体設定 --------- */
+body {
+  font-family: "Yu Gothic", sans-serif; /* 日本語でも見やすいフォント */
+  background: #fff; /* 背景は白 */
+  margin: 0;
+  padding: 0;
+}
+
+/* --------- ヘッダー --------- */
+/* ========== HEADER ========== */
+header {
+  background-color: #b8b8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  padding: 12px 24px;
+  border: 2px solid paleturquoise;
+  border-radius: 12px;
+  color: white;
+
+  
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 25px;
+
+}
+
+.icons a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 
+    color 0.4s ease,
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+/* hマウス来ると変わる */
+.icons a:hover {
+  color: darkblue; /* マウス来ると変わる色 */
+  transform: translateY(-3px) scale(1.05);
+  opacity: 1;
+}
+
+/* アンダーライン*/
+.icons a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: darkblue;
+  transition: width 0.4s ease;
+}
+
+.icons a:hover::after {
+  width: 100%;
+}
+
+
+main {
+  display: flex;
+  justify-content: center;   /* センターにする */
+  align-items: flex-start;   
+  gap: 40px;                
+  flex-wrap: wrap;         
+}
+/* お知らせ一覧 全体 */
+.notice-list {
+  flex: 0 0 50%;                /* メイン領域の60% */
+          margin: auto;
+  background: #b8b8f8;
+  padding: 25px 30px;
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;       /* アイテムを縦並び */
+  align-items: stretch;         /* 横幅いっぱいに */
+  gap: 10px;                    /* アイテム間の隙間 */
+}
+
+/* ヘッダー部分 */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.list-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.new-btn {
+  background: #7369ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.new-btn:hover {
+  background: #5b52e8;
+}
+
+/* お知らせアイテム */
+.notice-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+   display: flex !important;
+}
+
+/* 左側のテキスト部分 */
+.notice-item .date {
+  width: 60px;
+  font-weight: 600;
+  color: #5a5a5a;
+}
+
+
+.notice-item .title {
+  flex: 1;
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+/* 右端のボタン */
+.sent-btn {
+  background: #bfbfbf;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: default;
+}
+
+/* hover時にちょっと浮く */
+.notice-item:hover {
+  transform: translateY(-3px);
+  transition: transform 0.25s ease;
+}
+
+/* サイドメニュー（Side Menu） */
+.menu {
+  flex: 0 0 35%;           
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+
+/* --------- 報告一欄 --------- */
+.report {
+  background-color: #b8b8f8; /* 枠の背景を紫系に */
+  margin: 50px; /* 外側の余白 */
+  padding: 30px; /* 内側の余白 */
+  border-radius: 25px; /* 角を丸くする */
+  width: 45%; /* 横幅の45% */
+  float: left; /* 左側に配置 */
+}
+
+/* Hover effect */
+.menu-link:hover {
+	background: linear-gradient(90deg,#caa9ff,#a98bff);
+	color: #fff;
+	 box-shadow: 0 6px 16px rgba(138,85,255,0.25); 
+	 border: none;
+}
+
+.report div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Style for all .menu-link anchor tags */
+.menu-link {
+  display: inline-block;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  background-color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+/* Emoji spacing */
+.menu-link::before {
+  margin-right: 8px;
+}
+/* --------- サイドメニュー --------- */
+.menu {
+  float: right; /* 右側に配置 */
+  width: 35%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* メニューのボタン風リンク */
+.menu .menu-link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  border: 1px solid #dcd6ff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 12px auto;
+  width: 80%;
+  transition: all 0.25s ease; /* ホバー時にスムーズな動き */
+}
+
+/* ホバー時のふわっと浮く動き */
+.menu .menu-link:hover {
+  background: #f1eaff;
+  transform: translateY(-4px);
+}
+
+/* 現在選択中のメニュー（アクティブ） */
+.menu .menu-link.active {
+  background: linear-gradient(90deg,#caa9ff,#a98bff); /* グラデーション背景 */
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(138,85,255,0.25); /* 影で立体感 */
+  border: none;
+}
+.message-box textarea {
+  height: 260px; /* ← ❷ textarea の高さ*/
+  resize: none;
+  margin-bottom: 10px;
+}
+/* メッセージボックス */
+.message-box {
+  background: #e0e3ff;
+  border-radius: 20px;
+  padding: 25px 30px;
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+  border: 1px solid #cfcfff;
+}
+
+
+.message-box h2 {
+  background: #cdd8ff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* input と textarea */
+.message-box input,
+.message-box textarea {
+  margin-top: 8px;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message-box textarea {
+  height: 230px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+/* `下ボタン*/
+.message-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.send-btn {
+  background: #7369ff;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+.send-btn:hover {
+  background: #5d52e0;
+}
+
+/* ===== BACK BUTTON (小さい版) ===== */
+.back-btn {
+  background: none;
+  border: 2px solid #7369ff;
+  color: #7369ff;
+  border-radius: 70%;             /* 丸かたち */
+  width: 36px;                    /* ボタンサイズ*/
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;                /* Iアイコンサイズ */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 15px;               /* 送信ボタンからの間*/
+}
+
+/* hover マウス来るとかわる*/
+.back-btn:hover {
+  background: #7369ff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(115, 105, 255, 0.3);
+}
+.title {
+  font-weight: bold;
+}
+
+
+
+
+summary {
+  list-style: none;     
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;  
+}
+/* やじるしタイトルのまえ出せる */
+summary::before {
+  content: "▶";
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+/*タイトル開くときやじる動く*/
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+
+/* Dark Mode 時のボタン */
+.dark-mode .dark-toggle {
+  background: #444;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(255,255,255,0.2);
+}
+
+
+/* ====== Dark Mode 全体テーマ ====== */
+.dark-mode body {
+  background: #1a1a1a;
+  color: #eee;
+}
+
+.dark-mode header {
+  background: #2d2d40;
+  color: #fff;
+}
+
+.dark-mode .profile-card {
+  background: #333366;
+  color: white;
+}
+
+.dark-mode .menu .menu-link {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .menu .menu-link:hover {
+  background: #3a3a3a;
+}
+
+.dark-mode .menu .menu-link.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+}
+
+
+/* ==== Dark Mode Toggle Button ==== */
+.dark-toggle {
+  background: #fff;
+  color: #333;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.dark-toggle:hover {
+  background: #eaeaea;
+  transform: translateY(-3px);
+}
+
+/* Dark Mode 時のボタン */
+.dark-mode .dark-toggle {
+  background: #444;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(255,255,255,0.2);
+}
+/* ====== Dark Mode 全体テーマ ====== */
+.dark-mode body {
+  background: #222;   
+  color: #f0f0f0;      
+}
+
+.dark-mode header {
+  background: #2d2d40;
+  color: #fff;
+}
+
+.dark-mode .profile-card {
+  background: #333366;
+  color: white;
+}
+.dark-mode .info{
+	color: white;
+}
+.dark-mode .info-box{
+	color: white;
+}
+.dark-mode .greeting{
+	color: white;
+}
+
+
+.dark-mode .menu .menu-link {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .menu .menu-link:hover {
+  background: #3a3a3a;
+}
+
+.dark-mode .menu .menu-link.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+}
+/* =========================================
+   🔥 ダークモードボタンをクリック可能にする設定
+   ========================================= */
+#darkModeToggle {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#darkIcon {
+    pointer-events: none;
+}
+
+.icons {
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================
+   🌙 Dark Mode Theme
+   追加するだけで反映される
+============================ */
+.dark-mode body,
+.dark-mode {
+  background: #1a1a1a;
+  color: #eaeaea !important;
+}
+
+/* ヘッダー アイコン */
+.dark-mode .icons a {
+  color: #dcd6ff;
+}
+.dark-mode .icons a:hover {
+  color: #b39fff;
+}
+.dark-mode .icons a::after {
+  background-color: #b39fff;
+}
+
+/* ===== お知らせ一覧 ===== */
+.dark-mode .notice-list {
+  background: #3b3b55;
+  color: #fff;
+}
+.dark-mode .new-btn {
+  background:#a38bff;
+}
+.dark-mode .new-btn:hover {
+  background:#8d76ff;
+}
+.dark-mode .notice-item {
+  background:#2a2a2a;
+  color:#eaeaea;
+}
+.dark-mode .notice-item .date {
+  color:#cfcfff;
+}
+
+/* ===== メニュー系 ===== */
+.dark-mode .menu-link {
+  background:#262626;
+  color:#ddd;
+  border-color:#555;
+}
+.dark-mode .menu-link:hover {
+  background:#463c7f;
+}
+.dark-mode .menu-link.active {
+  background: linear-gradient(90deg,#6a4dff,#8c6eff);
+  color:#fff;
+}
+
+/* ===== 報告 ===== */
+.dark-mode .report {
+  background:#35335d;
+  color:#fff;
+}
+
+/* メッセージボックス */
+.dark-mode .message-box {
+  background:#2f2f4f;
+  color:#fff;
+  border-color:#887cff;
+}
+.dark-mode .message-box h2 {
+  background:#4e4a7e;
+  color:#fff;
+}
+
+/* フォーム */
+.dark-mode .message-box input,
+.dark-mode .message-box textarea {
+  background:#1d1d1d;
+  color:#eee;
+  box-shadow:none;
+  border:1px solid #666;
+}
+
+/* ボタン */
+.dark-mode .send-btn {
+  background:#8e79ff;
+}
+.dark-mode .send-btn:hover {
+  background:#6f5fff;
+}
+.dark-mode .back-btn {
+  border-color:#9b8bff;
+  color:#b5a9ff;
+}
+.dark-mode .back-btn:hover {
+  background:#7d6dff;
+  color:white;
+}
+
+/* details + summary */
+.dark-mode summary {
+  color:rgb(255, 255, 255);
+}
+.dark-mode details {
+  background:#222;
+}
+
+/* hover矢印カラー補正 */
+.dark-mode summary::before {
+  color:#dcd6ff;
+}
+
+
+
+

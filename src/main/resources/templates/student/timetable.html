@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>時間割</title>
+
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+	<!-- PC CSS -->
+	<link rel="stylesheet" th:href="@{/timeTable_css/timeTable.css}" media="screen and (min-width: 769px)">
+	<!-- Mobile CSS -->
+	<link rel="stylesheet" th:href="@{/timeTable_css/timetable_sp.css}" media="screen and (max-width: 768px)">
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+
+<body>
+
+	<!-- ===== ヘッダー ===== -->
+	<header>
+		<h1>時間割🟣</h1>
+		<div class="icons">
+			<a th:href="@{/student/settings}"><i class="bi bi-gear"></i></a>
+			<a th:href="@{/student/home}"><i class="bi bi-house"></i></a>
+		</div>
+	</header>
+
+	<main>
+		<!-- ===== 時間割エリア ===== -->
+		<section class="timetable">
+			<div class="days">
+				<button class="active" onclick="showDay('mon', this)">月</button>
+				<button onclick="showDay('tue', this)">火</button>
+				<button onclick="showDay('wed', this)">水</button>
+				<button onclick="showDay('thu', this)">木</button>
+				<button onclick="showDay('fri', this)">金</button>
+			</div>
+
+			<!-- ▼ 月曜日の時間割 ▼ -->
+      <div id="mon" class="subjects day">
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('menu1')">1 文法 ▼</button>
+          <div id="menu1" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('menu2')">2 聴解 ▼</button>
+          <div id="menu2" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('menu3')">3 語彙 ▼</button>
+          <div id="menu3" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('menu4')">4 昼休み ▼</button>
+          <div id="menu4" class="dropdown-content">
+            <a href="#">🍱 昼ごはんメニュー</a>
+            <a href="#">💬 自由時間</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('menu5')">5 作文 ▼</button>
+          <div id="menu5" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+             <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+      </div>
+
+<!--    火曜日以降 -->
+      <div id="tue" class="subjects day" style="display:none;">
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('t1')">1 読解 ▼</button>
+          <div id="t1" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+             <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('t2')">2 会話 ▼</button>
+         <div id="t2" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+         <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('t3')">3 文法 ▼</button>
+         <div id="t3" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+         <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('t4')">4 作文 ▼</button>
+         <div id="t4" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div id="wed" class="subjects day" style="display:none;">
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('w1')">1 作文 ▼</button>
+          <div id="w1" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('w2')">2 文法 ▼</button>
+          <div id="w2" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('w3')">3 昼休み ▼</button>
+          <div id="w3" class="dropdown-content">
+            <a href="#">🍱 昼ごはんメニュー</a>
+            <a href="#">💬 自由時間</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('w4')">4 読解 ▼</button>
+          <div id="w4" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('w5')">5 皆の日本語 ▼</button>
+          <div id="w5" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="thu" class="subjects day" style="display:none;">
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('th1')">1 作文 ▼</button>
+          <div id="th1" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('th2')">2 聴解 ▼</button>
+          <div id="th2" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('th3')">3 昼休み ▼</button>
+          <div id="th3" class="dropdown-content">
+            <a href="#">🍱 昼ごはんメニュー</a>
+            <a href="#">💬 自由時間</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('th4')">4 読解 ▼</button>
+          <div id="th4" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('th5')">5 グルーブワーク ▼</button>
+          <div id="th5" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="fri" class="subjects day" style="display:none;">
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('f1')">1 語彙 ▼</button>
+          <div id="f1" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('f2')">2 作文 ▼</button>
+          <div id="f2" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('f3')">3 昼休み ▼</button>
+          <div id="f3" class="dropdown-content">
+            <a href="#">🍱 昼ごはんメニュー</a>
+            <a href="#">💬 自由時間</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('f4')">4 読解 ▼</button>
+          <div id="f4" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" onclick="toggleMenu('f5')">5 聴解 ▼</button>
+          <div id="f5" class="dropdown-content">
+            <a href="https://drive.google.com/drive/my-drive">📚 教材ダウンロード</a>
+            <a href="https://docs.google.com/spreadsheets/d/1wPMZJtXie4ypVDtogySS-KCu538REazMAQFVzralAGY/edit?gid=0#gid=0">📝 出席管理</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1VEsfyvXt1bgmV7RDQbEld2G7wNyhC_qs">👥 授業外共有</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<!-- ===== 右側メニュー ===== -->
+		<aside class="menu">
+			<a th:href="@{/student/schedule}" class="menu-link">年間スケジュール📅</a>
+			<a th:href="@{/student/timetable}" class="menu-link active">時間割🟣</a>
+			<a th:href="@{/student/notices}" class="menu-link">お知らせ🔔</a>
+			<a th:href="@{/student/reports}" class="menu-link">報告📨</a>
+			<a th:href="@{/student/quiz}" class="menu-link">クイズゲーム🎮</a>
+		</aside>
+
+	</main>
+
+	<!-- ===== JavaScript ===== -->
+	<script>
+		// ▼ ドロップダウン開閉
+		function toggleMenu(id) {
+			const menu = document.getElementById(id);
+			const visible = menu.style.display === "block";
+			document.querySelectorAll(".dropdown-content").forEach(m => m.style.display = "none");
+			menu.style.display = visible ? "none" : "block";
+		}
+
+		// ▼ 曜日切替
+		function showDay(dayId, btn) {
+			document.querySelectorAll('.day').forEach(day => day.style.display = 'none');
+			document.getElementById(dayId).style.display = 'block';
+
+			document.querySelectorAll('.days button').forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+		}
+
+		// 初期ロード時に全メニュー非表示
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelectorAll(".dropdown-content").forEach(m => m.style.display = "none");
+		});
+	</script>
+
+	<script th:src="@{/js/theme.js}"></script>
+	<!-- 共通Footer -->
+  <div th:replace="common/footer"></div>
+
+</body>
+</html>

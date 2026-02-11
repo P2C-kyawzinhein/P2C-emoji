@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>年間スケジュール</title>
+
+  <!-- PC CSS -->
+  <link rel="stylesheet" th:href="@{/schedule_css/schedule.css}" media="screen and (min-width: 769px)">
+
+  <!-- Mobile CSS -->
+  <link rel="stylesheet" th:href="@{/schedule_css/schedule_sp.css}" media="screen and (max-width: 768px)">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Background circles -->
+  <div class="circle left"></div>
+  <div class="circle right"></div>
+
+  <!-- Home Button -->
+  <a th:href="@{/student/home}" class="home-btn bi-house">ホームへ戻る</a>
+
+  <!-- Show PDF Button -->
+  <div class="content" id="buttonContainer">
+    <button class="btn-main" onclick="showPdf()">年間スケジュールを見る 📅</button>
+  </div>
+
+  <!-- PDF View -->
+  <div id="pdfBox">
+    <iframe th:src="@{/extraDatas/YearSchedule.pdf}" title="年間スケジュール"></iframe>
+    <button class="btn-back" onclick="hidePdf()">← 戻る</button>
+  </div>
+
+  <script>
+    function showPdf() {
+      document.getElementById("buttonContainer").style.display = "none";
+      document.getElementById("pdfBox").style.display = "flex";
+    }
+    function hidePdf() {
+      document.getElementById("pdfBox").style.display = "none";
+      document.getElementById("buttonContainer").style.display = "flex";
+    }
+    
+  </script>
+
+  <script th:src="@{/js/theme.js}"></script>
+  <!-- 共通Footer -->
+  <div th:replace="common/footer"></div>
+</body>
+ 
+
+
+</html>

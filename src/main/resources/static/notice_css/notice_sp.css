@@ -1,0 +1,267 @@
+/* =========================================================
+   リセット / ベース
+========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  font-family: "Yu Gothic", sans-serif;
+    background: radial-gradient(120% 90% at 50% 0%,
+    #d9d6ff 0%,
+    #f7f8ff 55%,
+    #f7f8ff 100%);
+
+  color: #333;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================================
+   共通の最大幅（スマホ想定）
+========================================================= */
+header,
+main {
+  width: 100%;
+  max-width: 430px;
+}
+
+/* =========================================================
+   ヘッダー
+========================================================= */
+header {
+  background: linear-gradient(135deg, #6C63FF 0%, #8B85FF 55%, #BFA7FF 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 14px;
+  color: #fff;
+
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+
+/* 右側アイコン群 */
+.icons {
+  margin-left: auto;
+  display: flex !important;
+  align-items: center;
+  gap: 16px;
+}
+
+/* アイコンリンク（下線なし） */
+.icons a {
+  font-size: 32px; opacity: .95; 
+  color: #fff;
+  text-decoration: none;
+}
+
+/* =========================================================
+   ✅ 追加：Home と同じ色（active 表示）
+   ※ 形は変えない（pill/blur/丸ボタン化しない）
+   ※ HTML 側で class="active" を付けたアイコンに適用
+========================================================= */
+header .icons a.active {
+  background: linear-gradient(135deg, #6C63FF 0%, #8B85FF 55%, #BFA7FF 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(108, 99, 255, 0.55) !important;
+  box-shadow: 0 14px 30px rgba(108, 99, 255, 0.22) !important;
+}
+
+/* =========================================================
+   メイン
+========================================================= */
+main {
+  flex: 1;
+  padding: 12px 14px 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 16px;
+}
+ aside.menu { display: none !important;
+  }
+
+
+/* =========================================================
+   お知らせリスト
+========================================================= */
+.notice-list {
+  width: 100%;
+}
+
+.list-header h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+/* お知らせカード */
+.notice-item {
+  background: #fff;
+  border-radius: 14px;
+
+  padding: 8px 10px;
+  margin-bottom: 10px;
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   詳細 / ドロップダウン
+========================================================= */
+.dropdown {
+  width: 100%;
+}
+
+.dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown .title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dropdown-content {
+  margin-top: 6px;
+  padding-top: 6px;
+
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   ダークモード（背景 / 文字 / カード）
+========================================================= */
+
+/* ルート背景（白い枠対策） */
+html.dark-mode {
+  background: radial-gradient(120% 90% at 50% 0%,
+    #2a2a3a 0%,
+    #16161d 55%,
+    #16161d 100%) !important;
+  min-height: 100% !important;
+}
+
+/* body は透明にして root の背景を見せる */
+html.dark-mode body {
+  background: transparent !important;
+  color: #f2f2ff !important;
+  min-height: 100% !important;
+}
+
+/* ヘッダー（ダーク用グラデ） */
+html.dark-mode header {
+  background: linear-gradient(135deg,
+    #2f2f52 0%,
+    #3a3a66 60%,
+    #4a3f78 100%) !important;
+}
+
+/* タイトル・アイコン文字色 */
+html.dark-mode header,
+html.dark-mode header h1,
+html.dark-mode .icons a {
+  color: #f2f2ff !important;
+}
+
+/* メイン背景を透明に */
+html.dark-mode main {
+  background: transparent !important;
+}
+
+/* お知らせカード（ダーク） */
+html.dark-mode .notice-item {
+  background: linear-gradient(135deg,
+    rgba(55, 55, 80, 0.72),
+    rgba(35, 35, 55, 0.55)) !important;
+
+  border: 1px solid rgba(140, 130, 220, 0.35) !important;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.45) !important;
+  color: #f2f2ff !important;
+}
+
+/* summary / details の白浮きを防ぐ */
+html.dark-mode summary,
+html.dark-mode details {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+/* dropdown テキスト */
+html.dark-mode .dropdown .title {
+  color: #fff !important;
+}
+
+html.dark-mode .dropdown-content {
+  color: #ddd !important;
+  border-top: 1px solid #555 !important;
+  background: #1f1f1f !important;
+}
+
+/* 見出し・本文の色保証 */
+html.dark-mode h2 { color: #fff !important; }
+html.dark-mode p  { color: #ddd !important; }
+
+/* =========================================================
+   ライトモード：白枠対策
+========================================================= */
+html:not(.dark-mode) {
+  background: #f7f8ff !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+html:not(.dark-mode) body {
+  background: #f7f8ff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+  overflow-y: auto !important;
+}
+
+html:not(.dark-mode) main {
+  background: transparent !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+

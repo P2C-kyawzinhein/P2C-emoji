@@ -1,0 +1,403 @@
+body {
+  font-family: "Yu Gothic", sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #b8b8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  padding: 12px 24px;
+  border: 2px solid paleturquoise;
+  border-radius: 12px;
+  color: white;
+
+  
+}
+
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 25px;
+
+}
+
+.icons a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 
+    color 0.4s ease,
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+/* hマウス来ると変わる */
+.icons a:hover {
+  color: darkblue; /* マウス来ると変わる色 */
+  transform: translateY(-3px) scale(1.05);
+  opacity: 1;
+}
+
+/* アンダーライン*/
+.icons a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: darkblue;
+  transition: width 0.4s ease;
+}
+
+.icons a:hover::after {
+  width: 100%;
+}
+
+/* クリックするといい感じ*/
+.icons a:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.1s;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 50px;
+  gap: 30px;
+}
+
+/* 生徒情報 */
+.profile-card {
+  flex: 1;
+  background: #b8b8f8;
+  padding: 30px;
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/*あいさつ*/
+.greeting {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: left;
+  padding-left: 10px;
+  color: #12194a; /*おはようございます。～さん*/
+}
+
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  background: #e0e0ff;
+}
+/* ===== 出席率 ===== */
+.attendance-box label {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.6),
+    0 0 8px rgba(255,255,255,0.4);
+}
+
+
+.rate-text {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Progress container */
+.progress {
+  width: 100%;
+  height: 16px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* Colors by rate */
+.progress-bar.low {
+  background: #e74c3c;   /* red */
+}
+
+.progress-bar.mid {
+  background: #f1c40f;   /* yellow */
+}
+
+.progress-bar.high {
+  background: #2ecc71;   /* green */
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #12194a; /*名前、先生番号、学生番号*/
+}
+
+
+.info label {
+  font-size: 26px;
+  font-weight: bold;
+  opacity: 0.95;
+}
+
+/*名前*/
+.info-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 15px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  color:#12194a; /*align-items: 1234;*/
+}
+
+/* --------- サイドメニュー --------- */
+.menu {
+  float: right; /* 右側に配置 */
+  width: 35%;
+  margin-top: 50px;
+  text-align: center;
+
+}
+
+/* メニューのボタン風リンク */
+.menu .menu-link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  border: 1px solid #dcd6ff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 12px auto;
+  width: 80%;
+  transition: all 0.25s ease; /* ホバー時にスムーズな動き */
+}
+
+/* ホバー時のふわっと浮く動き */
+.menu .menu-link:hover {
+  background: #f1eaff;
+  transform: translateY(-4px);
+}
+
+/* 現在選択中のメニュー（アクティブ） */
+.menu .menu-link.active {
+  background: linear-gradient(90deg,#caa9ff,#a98bff); /* グラデーション背景 */
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(138,85,255,0.25); /* 影で立体感 */
+  border: none;
+}
+
+/* ログアウトボタン　赤色 */
+.menu-link.logout {
+  border-color: #ff8e8e;
+  color: #ff4c4c;
+}
+
+.menu-link.logout:hover {
+  background: #ff4c4c;
+  color: white;
+}
+.settings {
+  display: flex;
+  flex-direction: column; /* 列 */
+  align-items: center;
+  gap: 20px; /*リンクの間*/
+
+  background: #fff;
+  border: 1px solid #dcd6ff;
+  border-radius: 12px;
+  padding: 40px;
+  width: 300px;
+  margin: 40px auto;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+/*/設定 css */
+.settings a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 80%;
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
+  background: #f9f9ff;
+  border: 1px solid #dcd6ff;
+  border-radius: 10px;
+  padding: 14px 0;
+  transition: all 0.25s ease;
+}
+
+/*マイスが上に来ると*/
+.settings a:hover {
+  background: #f1eaff;/*マウスが上に来ると色変わる*/
+  transform: translateY(-4px);
+}
+
+/* ログアウト　ボタンの色*/
+.settings .logout-btn {
+  border-color: #ff8e8e;
+  color: #ff4c4c;
+}
+
+.settings .logout-btn:hover {
+  background: #ff4c4c;
+  color: #fff;
+}
+/* ====== Dark Mode 全体テーマ ====== */
+.dark-mode body {
+  background: #222;   
+  color: #f0f0f0;      
+}
+
+.dark-mode header {
+  background: #2d2d40;
+  color: #fff;
+}
+
+.dark-mode .profile-card {
+  background: #333366;
+  color: white;
+}
+.dark-mode .info{
+	color: white;
+}
+.dark-mode .info-box{
+	color: white;
+}
+.dark-mode .greeting{
+	color: white;
+}
+
+
+.dark-mode .menu .menu-link {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .menu .menu-link:hover {
+  background: #3a3a3a;
+}
+
+.dark-mode .menu .menu-link.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+}
+/* =========================================
+   🔥 ダークモードボタンをクリック可能にする設定
+   ========================================= */
+#darkModeToggle {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#darkIcon {
+    pointer-events: none;
+}
+
+.icons {
+    position: relative;
+    z-index: 10;
+}
+/* ========= ダークモード時の settings デザイン ========= */
+.dark-mode .settings {
+  background: #2a2a2a;       /* 背景を暗く */
+  color: #fff;               /* 文字白 */
+  border-color: #555;        /* 枠グレーに */
+  box-shadow: 0 6px 16px rgba(255,255,255,0.1); /* 影もダーク用 */
+}
+
+/* settings内リンクの色変更 */
+.dark-mode .settings a {
+  background: #3a3a3a;
+  color: #fff;
+  border-color: #666;
+}
+
+/* hoverもちゃんと変わるように */
+.dark-mode .settings a:hover {
+  background: #505050;
+  transform: translateY(-4px);
+}
+
+/* logout赤ボタンのダークモード */
+.dark-mode .settings .logout-btn {
+  background: #5a2222;
+  color: #fff;
+  border-color: #ff7373;
+}
+
+.dark-mode .settings .logout-btn:hover {
+  background: #c53333;
+}
+/* ============================
+   🌙 ダークモード中のライトモードボタン強調
+   ============================ */
+
+/* 太陽アイコン（lightモードに戻るボタン）が見えやすくなる */
+.dark-mode .icons a.light-toggle {
+  color: #ffeb3b !important;     /* 明るい黄色 */
+  text-shadow: 0 0 6px #ffeb3b; /* 光って見える */
+}
+
+/* hover 時もちゃんと明るさを保つ */
+.dark-mode .icons a.light-toggle:hover {
+  color: #fff176 !important; /* 少し明るい黄色 */
+  text-shadow: 0 0 8px #fff176;
+}
+.dark-mode .icons a.light-toggle,
+.dark-mode .light-toggle {
+  color: #ffeb3b !important;
+  text-shadow: 0 0 6px #ffeb3b;
+}
+
+.dark-mode .icons a.light-toggle:hover,
+.dark-mode .light-toggle:hover {
+  color: #fff176 !important;
+  text-shadow: 0 0 8px #fff176;
+}
+

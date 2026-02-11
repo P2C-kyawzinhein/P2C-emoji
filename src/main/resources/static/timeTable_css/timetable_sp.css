@@ -1,0 +1,398 @@
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #f7f8ff;
+  font-family: "Yu Gothic", sans-serif;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header, main {
+  width: 100%;
+  max-width: 430px;
+}
+
+
+  header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: linear-gradient(135deg,#6C63FF 0%,#8B85FF 55%,#BFA7FF 100%);
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    box-shadow: 0 14px 30px rgba(108, 99, 255, 0.28);
+    padding: 14px 16px;
+  }
+
+  header h1 {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: .3px;
+    white-space: nowrap;
+  }
+
+  .icons {
+    margin-left: auto;
+    display: flex !important;
+    align-items: center;
+    gap: 16px;
+  }
+
+
+.icons a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+
+
+main {
+  padding: 20px 14px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  /* height helper */
+  min-height: calc(100vh - 110px);
+}
+
+
+/* =========================
+   4）日付ボタン
+   ========================= */
+
+.days {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.days button {
+  flex: 1;
+  margin: 0 3px;
+  padding: 10px 0;
+
+  border-radius: 10px;
+  background: #dcd6ff;
+  color: #333;
+
+  border: none;
+  font-size: 16px;
+}
+
+.days button.active {
+  background: #a697ff;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+.dropdown {
+  margin-bottom: 10px;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+
+  background: #ffffff;
+  border: 2px solid #b8b8f8;
+  border-radius: 14px;
+
+  font-size: 15px;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.dropdown-content a {
+  display: block;
+  width: 100%;
+
+  font-size: 15px;
+  text-align: center;
+
+  white-space: normal;
+  word-break: break-word;
+
+  background: #f4f0ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+
+  text-decoration: none;
+  color: #333;
+}
+aside.menu {
+  display: none !important;
+}
+
+html:not(.dark-mode) {
+  background: #f7f8ff !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+html:not(.dark-mode) body {
+  background: #f7f8ff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+  overflow-y: auto !important;
+}
+
+html:not(.dark-mode) main {
+  background: transparent !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* 注記：aside.menu はそのまま維持 */
+
+html:not(.dark-mode) aside.menu {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+/* =========================
+   8) DARK MODE (merged, no duplicates)
+   ========================= */
+html.dark-mode {
+  background: radial-gradient(120% 90% at 50% 0%, #2a2a3a 0%, #16161d 55%, #16161d 100%) !important;
+  min-height: 100% !important;
+}
+
+html.dark-mode body {
+  background: transparent !important;
+  min-height: 100% !important;
+  color: #f2f2f2;
+}
+
+/* Header */
+html.dark-mode header {
+  background: linear-gradient(135deg, #2f2f52 0%, #3a3a66 60%, #4a3f78 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+html.dark-mode header h1,
+html.dark-mode .icons a {
+  color: #ffffff;
+}
+
+/* Main */
+html.dark-mode main {
+  background: transparent;
+}
+
+/* Days */
+html.dark-mode .days button {
+  background: #2a2a44;
+  color: #ddd;
+}
+
+html.dark-mode .days button.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff);
+  color: #fff;
+}
+
+/* Dropdown */
+html.dark-mode .dropdown-btn {
+  background: #1e1e30;
+  color: #ffffff;
+  border: 2px solid #4a4a6a;
+}
+
+html.dark-mode .dropdown-content a {
+  background: #2a2a44;
+  color: #ffffff;
+  border: 1px solid #4a4a6a;
+}
+
+html.dark-mode .menu .menu-link {
+  background: linear-gradient(
+    135deg,
+    rgba(55,55,80,0.72),
+    rgba(35,35,55,0.55)
+  ) !important;
+
+  border-color: rgba(140,130,220,0.35) !important;
+  color: #f2f2ff !important;
+}
+
+html.dark-mode .menu .menu-link::after {
+  color: rgba(242, 242, 255, 0.75) !important;
+  opacity: 1 !important;
+}
+
+html.dark-mode .menu .menu-link:hover {
+  background: rgba(70,70,110,0.65) !important;
+  transform: translateY(-3px);
+}
+
+html.dark-mode .menu .menu-link.active {
+  background: linear-gradient(90deg,#7f5cff,#4b3cff) !important;
+  color: #ffffff !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.7) !important;
+}
+
+
+
+/* ✅ メニュー固定（モバイル） */
+
+/*@media (max-width: 768px) {*/
+
+/* メニューを画面下部に固定表示 */
+
+/*  aside.menu{*/
+/*    position: fixed !important;*/
+/*    left: 50% !important;*/
+/*    transform: translateX(-50%) !important;*/
+
+/*    bottom: 12px !important;*/
+/*    width: calc(100% - 28px) !important;*/
+/*    max-width: 430px !important;*/
+
+/*    z-index: 9999 !important;*/
+
+/*    padding: 10px !important;*/
+/*    border-radius: 18px !important;*/
+/*    background: rgba(247, 248, 255, 0.85) !important;*/
+/*    backdrop-filter: blur(12px) !important;*/
+/*    -webkit-backdrop-filter: blur(12px) !important;*/
+/*  }*/
+
+/* 固定メニューがコンテンツをクリックできないようにする */
+
+  main{
+    padding-bottom: 120px !important;
+  }
+
+/* クリック時のジャンプを防止 */
+
+  .menu .menu-link:active{
+    transform: none !important;
+  }
+
+
+/* dark mode үед menu background */
+html.dark-mode aside.menu{
+  background: rgba(22, 22, 29, 0.72) !important;
+}
+/*/////////////New///////////*/
+/*@media (max-width: 768px) {*/
+
+/*   aside.menu を下固定バーに */
+/*  aside.menu {*/
+/*    position: fixed !important;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: env(safe-area-inset-bottom);*/
+
+/*    display: flex !important;*/
+/*    flex-wrap: nowrap !important;*/
+/*    gap: 14px;*/
+
+/*    padding: 12px 16px !important;*/
+
+/*    overflow-x: auto !important;*/
+/*    white-space: nowrap !important;*/
+
+/*    background: rgba(255, 255, 255, 0.88) !important;*/
+/*    backdrop-filter: blur(14px);*/
+/*    -webkit-backdrop-filter: blur(14px);*/
+
+/*    border-radius: 18px 18px 0 0;*/
+/*    box-shadow: 0 -8px 26px rgba(90, 80, 180, 0.25);*/
+
+/*    z-index: 9999;*/
+/*  }*/
+
+  /* タイトル「よく使う」を消す */
+/*  aside.menu::before {*/
+/*    display: none !important;*/
+/*    content: none !important;*/
+/*  }*/
+
+/*   menu-link をボタン化 */
+/*  aside.menu a.menu-link {*/
+/*    flex: 0 0 auto !important;*/
+/*    min-width: 88px;*/
+
+/*    display: flex !important;*/
+/*    flex-direction: column !important;*/
+/*    align-items: center !important;*/
+/*    justify-content: center;*/
+
+/*    padding: 10px 14px !important;*/
+/*    border-radius: 16px;*/
+
+/*    font-size: 13px !important;*/
+/*    font-weight: 900;*/
+
+/*    white-space: nowrap;*/
+
+/*    background: rgba(108, 99, 255, 0.14) !important;*/
+/*    border: 1px solid rgba(108, 99, 255, 0.22) !important;*/
+/*  }*/
+
+/*   矢印 › を消す */
+/*  aside.menu a.menu-link::after {*/
+/*    display: none !important;*/
+/*  }*/
+
+/*   押した感 */
+/*  aside.menu a.menu-link:active {*/
+/*    transform: scale(0.96);*/
+/*  }*/
+
+/*   最後の要素を全幅にしない */
+/*  aside.menu a.menu-link:last-child {*/
+/*    grid-column: auto !important;*/
+/*  }*/
+
+/*   下バーに隠れないように */
+/*  main {*/
+/*    padding-bottom: 110px !important;*/
+/*  }*/
+/*}*/
+/*html.dark-mode aside.menu {*/
+/*  background: rgba(22, 22, 29, 0.85) !important;*/
+/*}*/
+
+/*html.dark-mode aside.menu a.menu-link {*/
+/*  color: #f2f2ff !important;*/
+/*  background: rgba(108, 99, 255, 0.18) !important;*/
+/*  border-color: rgba(108, 99, 255, 0.35) !important;*/
+/*}*/
+/*@media (max-width: 768px) {*/
+/*  aside.menu a.menu-link.active::first-letter {*/
+/*    color: #6C63FF !important;*/
+/*    transform: scale(1.15);*/
+/*  }*/
+/*}*/
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>先生用 新規登録</title>
+	<!-- jsを読み込み -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/home_css/home.css}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+	<style>
+		body {
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background-color: #f7f9fb;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #b8b8f8;
+			color: white;
+			padding: 15px;
+			text-align: center;
+		}
+
+		.register-container {
+			width: 400px;
+			margin: 50px auto;
+			background: white;
+			padding: 30px;
+			border-radius: 12px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		}
+
+		h2 {
+			text-align: center;
+			color: #333;
+			margin-bottom: 25px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		label {
+			font-weight: bold;
+			color: #444;
+		}
+
+		input {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			font-size: 15px;
+		}
+
+		input:focus {
+			outline: none;
+			border-color: #007bff;
+			box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+		}
+
+		button {
+			padding: 10px;
+			border: none;
+			background-color: #b8b8f8;
+			color: white;
+			font-size: 16px;
+			border-radius: 6px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		button:hover {
+			background-color: #0056b3;
+		}
+
+		.back-link {
+			display: block;
+			text-align: center;
+			margin-top: 15px;
+			color: #007bff;
+			text-decoration: none;
+		}
+
+		.back-link:hover {
+			text-decoration: underline;
+		}
+
+		/* =========================
+   🌙 Dark Mode - 登録フォーム
+   ========================= */
+
+		.dark-mode body {
+			background: #181a1f;
+			color: #f0f0f0;
+		}
+
+		/* ヘッダー */
+		.dark-mode header {
+			background: #2a2a40;
+			color: #fff;
+		}
+
+		/* 登録カード */
+		.dark-mode .register-container {
+			background: #24262e;
+			box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+		}
+
+		/* タイトル */
+		.dark-mode h2 {
+			color: #ffffff;
+		}
+
+		/* ラベル */
+		.dark-mode label {
+			color: #e0e0e0;
+		}
+
+		/* 入力欄 */
+		.dark-mode input {
+			background: #2f313a;
+			color: #fff;
+			border: 1px solid #666;
+		}
+
+		.dark-mode input::placeholder {
+			color: #aaa;
+		}
+
+		.dark-mode input:focus {
+			outline: none;
+			border-color: #8b8bff;
+			box-shadow: 0 0 6px rgba(139, 139, 255, 0.7);
+		}
+
+		/* ボタン */
+		.dark-mode button {
+			background: linear-gradient(90deg, #6f5cff, #4330ff);
+			color: white;
+		}
+
+		.dark-mode button:hover {
+			background: linear-gradient(90deg, #5745ff, #2f1fff);
+		}
+
+		/* 戻るリンク */
+		.dark-mode .back-link {
+			color: #8ab4ff;
+		}
+
+		.dark-mode .back-link:hover {
+			color: #ffffff;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- ===== ヘッダー ===== -->
+	<header>
+		<h1><i class="bi bi-person-badge"></i> 先生用 新規登録</h1>
+	</header>
+
+	<!-- ===== メイン内容 ===== -->
+	<div class="register-container">
+		<h2>先生アカウント作成</h2>
+
+		<form th:action="@{/teacher/register/teacher}" th:object="${teacher}" method="post">
+
+			<label for="teacherMail">メールアドレス</label>
+			<input type="email" id="teacherMail" th:field="*{teacherMail}" placeholder="例: teacher@example.com"
+				required>
+
+			<label for="teacherName">氏名</label>
+			<input type="text" id="teacherName" th:field="*{teacherName}" placeholder="例: 山田 太郎" required>
+
+			<label for="teacherPass">パスワード</label>
+			<input type="password" id="teacherPass" th:field="*{teacherPass}" placeholder="********" required>
+
+			<label for="teacherNumber">職員番号（任意）</label>
+			<input type="text" id="teacherNumber" th:field="*{teacherNumber}" placeholder="例: 12345678">
+
+			<button type="submit">登録する</button>
+		</form>
+
+		<a th:href="@{/teacher/settings}" class="back-link">
+			<i class="bi bi-arrow-left-circle"></i> 設定に戻る
+		</a>
+	</div>
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>

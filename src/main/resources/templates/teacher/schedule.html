@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>年間スケジュール</title>
+	<style>
+		body {
+			background-color: #fff;
+			font-family: 'Poppins', sans-serif;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			overflow: hidden;
+			position: relative;
+			margin: 0;
+		}
+
+		/* 背景の丸デザイン */
+		.circle {
+			position: absolute;
+			background-color: #6a44e3;
+			border-radius: 50%;
+			z-index: 0;
+			transition: all 0.4s ease;
+		}
+
+		/*まるの置く場所左がわ*/
+		.circle.left {
+			width: 400px;
+			height: 400px;
+			left: -150px;
+			top: 100px;
+		}
+
+		/*まるの置く場所右がわ*/
+		.circle.right {
+			width: 400px;
+			height: 400px;
+			right: -150px;
+			bottom: 100px;
+		}
+
+		/* マウス上に来ると少し動く*/
+		.circle:hover {
+			background: #7b5df3;
+			transform: scale(1.05);
+		}
+
+		/* Homeボタン */
+		.home-btn {
+			position: absolute;
+			top: 20px;
+			left: 30px;
+			background-color: #6a44e3;
+			color: white;
+			border: none;
+			border-radius: 20px;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			z-index: 10;
+			text-decoration: none;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.home-btn:hover {
+			background: #f1eaff;
+			/* マウスが上に来ると色変わる */
+			color: #6a44e3;
+			transform: translateY(-4px);
+			box-shadow: 0 6px 15px rgba(106, 68, 227, 0.4);
+		}
+
+		/* メインボタンコンテナ */
+		.login-container {
+			z-index: 10;
+			text-align: center;
+			width: 350px;
+			transition: opacity 0.4s ease;
+		}
+
+		.btn-login {
+			width: 100%;
+			background-color: #6a44e3;
+			color: white;
+			border: none;
+			border-radius: 25px;
+			padding: 15px;
+			font-size: 18px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.btn-login:hover {
+			background: #f1eaff;
+			/* マウス来るとチェンジする色 */
+			color: #6a44e3;
+			transform: translateY(-4px);
+			box-shadow: 0 6px 15px rgba(106, 68, 227, 0.4);
+		}
+
+		/* PDF埋め込み部分 */
+		#pdfBox {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #f5f5f5;
+			z-index: 5;
+			padding-top: 60px;
+		}
+
+		iframe {
+			display: block;
+			margin: 0 auto;
+			width: 80%;
+			height: 85%;
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		/* ====== Dark Mode 全体テーマ ====== */
+		.dark-mode body {
+			background: #222;
+			color: #f0f0f0;
+		}
+
+		.dark-mode header {
+			background: #2d2d40;
+			color: #fff;
+		}
+
+		.dark-mode .profile-card {
+			background: #333366;
+			color: white;
+		}
+
+		.dark-mode .info {
+			color: white;
+		}
+
+		.dark-mode .info-box {
+			color: white;
+		}
+
+		.dark-mode .greeting {
+			color: white;
+		}
+
+
+		.dark-mode .menu .menu-link {
+			background: #2a2a2a;
+			color: #fff;
+			border-color: #555;
+		}
+
+		.dark-mode .menu .menu-link:hover {
+			background: #3a3a3a;
+		}
+
+		.dark-mode .menu .menu-link.active {
+			background: linear-gradient(90deg, #7f5cff, #4b3cff);
+		}
+
+		/* =========================================
+   🔥 ダークモードボタンをクリック可能にする設定
+   ========================================= */
+		#darkModeToggle {
+			position: relative;
+			z-index: 9999;
+			pointer-events: auto;
+			cursor: pointer;
+		}
+
+		#darkIcon {
+			pointer-events: none;
+		}
+
+		.icons {
+			position: relative;
+			z-index: 10;
+		}
+
+
+		/* PDF部分 */
+		.dark-mode #pdfBox {
+			background-color: #222 !important;
+		}
+
+		/* Homeボタン */
+		.dark-mode .home-btn {
+			background-color: #333 !important;
+			color: #fff !important;
+		}
+
+		.dark-mode .home-btn:hover {
+			background-color: #777 !important;
+			color: #000 !important;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- 🌙 これ -->
+	<button id="darkModeToggle" style="background:none;border:none;font-size:22px;">
+		<i id="darkIcon" class="bi bi-moon"></i>
+	</button>
+
+	</div>
+
+
+	<!-- 背景の円 -->
+	<div class="circle left"></div>
+	<div class="circle right"></div>
+
+	<!-- Homeへ戻る -->
+	<a th:href="@{/teacher/home}" class="home-btn">🏠 Homeへ戻る</a>
+
+	<!-- メイン中央ボタン -->
+	<div class="login-container" id="buttonContainer">
+		<button class="btn-login" onclick="showPdf()">年間スケジュールを見る 📅</button>
+	</div>
+
+	<!-- PDF表示エリア -->
+	<div id="pdfBox">
+		<iframe th:src="@{/extraDatas/TeacherYearSchedule.pdf}" title="年間スケジュール"></iframe>
+	</div>
+
+	<script>
+		function showPdf() {
+			// ボタンを消してPDFを表示
+			document.getElementById('buttonContainer').style.display = 'none';
+			document.getElementById('pdfBox').style.display = 'block';
+		}
+	</script>
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>

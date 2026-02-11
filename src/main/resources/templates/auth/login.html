@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Login - Emoji</title>
+	<link rel="stylesheet" th:href="@{/emoji/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/login.css/login.css}"
+	 media="screen and (min-width: 769px)">
+	<link rel="stylesheet" th:href="@{/login.css/login_sp.css}"
+	 media="screen and (max-width: 768px)">
+</head>
+
+<body>
+	<div class="circle left"></div>
+	<div class="circle right"></div>
+
+	<div class="login-container">
+
+		<img th:src="@{/login.css/emoji.login.jpg}" alt="Emoji Logo" class="logo" />
+
+		<div class="user-icon">
+			<i class="bi bi-person-fill"></i>
+		</div>
+
+		<form th:action="@{/login}" th:object="${loginForm}" method="post">
+
+		
+			<input type="text" th:field="*{userMail}" placeholder="メールアドレス">
+			<p class="error-text" th:if="${#fields.hasErrors('userMail')}"
+			   th:errors="*{userMail}"></p>
+
+			<input type="password" th:field="*{password}" placeholder="パスワード">
+			<p class="error-text" th:if="${#fields.hasErrors('password')}"
+			   th:errors="*{password}"></p>
+
+			<div th:if="${error}" class="error-text">
+				[[${error}]]
+			</div>
+
+			<button type="submit" class="btn-login">ログイン</button>
+
+			<a th:href="@{/forgot}" class="forgot">パスワードをお忘れですか？</a>
+		</form>
+	</div>
+
+	<script th:src="@{/emoji/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

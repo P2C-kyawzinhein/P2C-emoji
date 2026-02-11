@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/* 🌙 ダークモードに切り替えた時 */
+.dark-mode {
+	background: #121212;
+	color: #fff;
+}
+
+/* 例：ヘッダー暗く */
+.dark-mode .navbar {
+	background: #1f1f1f;
+}
+
+/* 例：ボタン */
+.dark-toggle {
+	background: none;
+	border: none;
+	font-size: 22px;
+	color: inherit;
+	cursor: pointer;
+}
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111;
+}
+
+.dark-mode {
+    --bg-color: #1d1d1d;
+    --text-color: #e6e6e6;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}

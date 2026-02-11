@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>報告</title>
+	<!-- CSSを読み込み -->
+	<link rel="stylesheet" th:href="@{/report_css/report.css}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+	<!-- ＝＝＝＝＝＝ ヘッダー ＝＝＝＝＝＝ -->
+	<header>
+		<h1>報告</h1>
+
+		<div class="icons">
+
+			<!-- 🌙 ✨ 追加した部分 ✨ -->
+			<!--			<button id="darkModeToggle" style="background:none;border:none;font-size:22px;">-->
+			<!--				<i id="darkIcon" class="bi bi-moon"></i>-->
+			<!--			</button>-->
+
+			<a th:href="@{/teacher/settings}"><i class="bi bi-gear"></i> 設定</a>
+			<a th:href="@{/teacher/home}"><i class="bi bi-house"></i> ホーム</a>
+		</div>
+	</header>
+	<main>
+
+		<section class="report">
+			<div>
+				<a th:href="'https://docs.google.com/spreadsheets/d/1_fZwFFO6z0mYFN3CTMXMVIo8X1PZKFCbRuwZZ6NcL9U/edit?resourcekey=&gid=1727945059#gid=1727945059'"
+					target="_blank" class="menu-link">🌐VISA更新</a>
+				<br>
+				<a th:href="'https://docs.google.com/spreadsheets/d/1GkOrJADmeXeeMWaw91G25b3rFL_rU_8BP3b0dJbHyeY/edit?resourcekey=&gid=982894889#gid=982894889'"
+					target="_blank" class="menu-link">🧑‍💼アルバイト報告</a>
+				<br>
+				<a th:href="'https://docs.google.com/spreadsheets/d/1zjp6jDpMjBr9Mkj2QEQhvv3Awbs1rtxS1iMliNr-6eQ/edit?resourcekey=&gid=1110077459#gid=1110077459'"
+					target="_blank" class="menu-link">📝JLPT報告</a>
+				<br>
+				<a th:href="'https://docs.google.com/spreadsheets/d/1sGqqJp-8sPTn-jnuRrtpWuxDUIyc1Cg24S1lxFHvsWk/edit?resourcekey=&gid=451737314#gid=451737314'"
+					target="_blank" class="menu-link">🏠住所変更</a>
+				<br>
+				<a th:href="'https://docs.google.com/spreadsheets/d/1GlAe8IhrAFHnyoAeK455qgx-h2JD8RLZaaKHOMzrpt0/edit?resourcekey=&gid=2097218830#gid=2097218830'"
+					target="_blank" class="menu-link">💬その他・相談</a>
+			</div>
+		</section>
+		<!--    サイドメニュー（右側）-->
+		<aside class="menu">
+			<a th:href="@{/teacher/schedule}" th:classappend="${active == 'schedule'} ? ' active' : ''"
+				class="menu-link">年間スケジュール📅</a>
+			<a th:href="@{/teacher/timetable}" th:classappend="${active == 'timetable'} ? ' active' : ''"
+				class="menu-link">時間割🟣</a>
+			<a th:href="@{/teacher/notices}" th:classappend="${active == 'notices'} ? ' active' : ''"
+				class="menu-link">お知らせ🔔</a>
+			<a th:href="@{/teacher/reports}" th:classappend="${active == 'reports'} ? ' active' : ''"
+				class="menu-link">報告📨</a>
+			　
+		</aside>
+	</main>
+
+	
+
+	<!--  JavaScript -->
+	<script>
+		// ▼ ドロップダウンを開閉する
+		function toggleMenu(id) {
+			const menu = document.getElementById(id);
+			const isVisible = menu.style.display === "block";
+			document.querySelectorAll(".dropdown-content").forEach(m => m.style.display = "none");
+			menu.style.display = isVisible ? "none" : "block";
+		}
+
+		// ▼ 曜日を切り替える
+		function showDay(dayId, btn) {
+			document.querySelectorAll('.day').forEach(day => day.style.display = 'none');
+			document.getElementById(dayId).style.display = 'block';
+			document.querySelectorAll('.days button').forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+		}
+	</script>
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>

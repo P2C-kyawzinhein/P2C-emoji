@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>クイズ登録</title>
+	<link rel="stylesheet" th:href="@{/quiz_css/quiz_regist.css}">
+</head>
+
+<body>
+	<header>
+		<h1>クイズ登録</h1>
+	</header>
+	<a th:href="@{/teacher/settings}" class="back-btn">設定に戻る</a>
+	<main class="quiz-register">
+
+		<form th:action="@{/teacher/quiz/register}" method="post" th:object="${question}">
+
+			<div>
+				<label>問題文：</label>
+				<input type="text" th:field="*{questionTitle}" required>
+			</div>
+
+			<div>
+				<label>選択肢A：</label>
+				<input type="text" th:field="*{questionSelect1}" required>
+			</div>
+
+			<div>
+				<label>選択肢B：</label>
+				<input type="text" th:field="*{questionSelect2}" required>
+			</div>
+
+			<div>
+				<label>選択肢C：</label>
+				<input type="text" th:field="*{questionSelect3}" required>
+			</div>
+
+			<div>
+				<label>選択肢D：</label>
+				<input type="text" th:field="*{questionSelect4}" required>
+			</div>
+
+			<div>
+				<label>正解：</label>
+				<select name="answerId" required>
+					<option th:each="ans : ${answers}" th:value="${ans.answerId}" th:text="${ans.answerNumber}">
+					</option>
+				</select>
+			</div>
+
+			<div>
+				<label>レベル：</label>
+				<select name="quizlevel.levelId" required>
+					<option th:each="lvl : ${levels}" th:value="${lvl.levelId}" th:text="${lvl.levelName}">
+					</option>
+				</select>
+			</div>
+
+
+
+
+
+			<button type="submit">登録</button>
+		</form>
+	
+
+	</main>
+<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>

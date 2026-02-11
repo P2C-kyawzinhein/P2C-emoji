@@ -1,0 +1,244 @@
+/* =============================
+   MOBILE STYLE - Year Schedule Page
+   ============================= */
+
+/* =========================================================
+   ベース
+========================================================= */
+:root {
+  /* iPhone notch / safe-area */
+  --safe-top: env(safe-area-inset-top);
+  --safe-left: env(safe-area-inset-left);
+  --safe-right: env(safe-area-inset-right);
+  --safe-bottom: env(safe-area-inset-bottom);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: #f7f8ff;
+  font-family: "Yu Gothic", sans-serif;
+
+  /* 横スクロールだけ防ぐ */
+  overflow-x: hidden;
+
+  /* body төвлөрүүлэх flex БИШ */
+  position: relative;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   背景サークル
+========================================================= */
+.circle {
+  position: fixed;
+  z-index: 1;
+  background: #6a44e3;
+  border-radius: 50%;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.circle.left {
+  width: 260px;
+  height: 260px;
+  left: -80px;
+  top: 0;
+}
+
+.circle.right {
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  bottom: 0;
+}
+
+/* =========================================================
+   Home ボタン（常に表示 / 画面内に収める）
+========================================================= */
+.home-btn {
+  position: fixed;
+  top: calc(14px + var(--safe-top));
+  right: calc(14px + var(--safe-right));
+
+  z-index: 10010;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+  font-size: 15px;
+  line-height: 1;
+
+  background: #6a44e3;
+  color: #fff;
+
+  border-radius: 12px;
+  text-decoration: none;
+
+  max-width: calc(100vw - 28px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* bi-house fallback icon */
+.home-btn {
+  display: none;
+}
+
+/* =========================================================
+   コンテンツ（ボタンを画面のど真ん中）
+========================================================= */
+.content {
+  z-index: 5;
+  width: 100%;
+
+  /* ✅ mobile address bar үсрэхгүй төвлөрүүлэлт */
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ✅ safe-area + Home button давхцахгүй жижиг padding */
+  padding:
+    calc(24px + var(--safe-top))
+    14px
+    calc(24px + var(--safe-bottom))
+    14px;
+
+  box-sizing: border-box;
+}
+
+/* メインボタン */
+.btn-main {
+  width: 85%;
+  max-width: 520px;
+
+  padding: 14px;
+  font-size: 18px;
+
+  background: #6a44e3;
+  color: #fff;
+
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+/* =========================================================
+   PDF Viewer（全画面）
+========================================================= */
+#pdfBox {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* ✅ */
+
+  background: #000;
+  z-index: 9999;
+
+  display: none; /* JS で flex にする */
+  overflow: hidden;
+
+  /* iframe + button байрлуулах */
+  flex-direction: column;
+}
+
+/* iframe は全面 */
+#pdfBox iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
+}
+
+/* =========================================================
+   戻るボタン（PDF表示中に必ず見える）
+========================================================= */
+#pdfBox .btn-back {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  top: calc(14px + var(--safe-top));
+  left: calc(14px + var(--safe-left));
+
+  z-index: 10020;
+
+  padding: 10px 12px;
+  font-size: 15px;
+  line-height: 1;
+
+  background: #6a44e3;
+  color: #fff;
+
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* =========================================================
+   PDF表示中のスクロール制御（iOSに強め）
+========================================================= */
+body.pdf-open {
+  overflow: hidden;
+  position: fixed;   /* ✅ iOSで安定 */
+  width: 100%;
+  touch-action: none;
+}
+
+/* =========================================================
+   🌙 DARK MODE（html.dark-mode 対応）
+========================================================= */
+html.dark-mode body {
+  background: #0f0f18;
+}
+
+/* 背景サークル */
+html.dark-mode .circle {
+  background: #4b3cff;
+  opacity: 0.6;
+}
+
+/* Homeボタン */
+html.dark-mode .home-btn {
+  background: linear-gradient(90deg, #7f5cff, #4b3cff);
+  color: #ffffff;
+}
+
+/* メインボタン */
+html.dark-mode .btn-main {
+  background: linear-gradient(90deg, #7f5cff, #4b3cff);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* PDF表示背景 */
+html.dark-mode #pdfBox {
+  background: #0a0a12;
+}
+
+/* iframe（PDF） */
+html.dark-mode #pdfBox iframe {
+  background: #1a1a1a;
+}
+
+/* 戻るボタン */
+html.dark-mode #pdfBox .btn-back {
+  background: linear-gradient(90deg, #7f5cff, #4b3cff);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}

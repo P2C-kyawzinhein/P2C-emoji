@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>時間割</title>
+	<!-- jsを読み込み -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/home_css/home.css}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+	<!-- ===== ヘッダー ===== -->
+	<header>
+		<h1><i class="bi bi-house"></i>ホーム</h1>
+		<div class="icons">
+			<!-- 🌙 ✨ 追加した部分 ✨ -->
+<!--			<button id="darkModeToggle" style="background:none;border:none;font-size:22px;">-->
+<!--				<i id="darkIcon" class="bi bi-moon"></i>-->
+<!--			</button>-->
+
+			<a th:href="@{/teacher/settings}"><i class="bi bi-gear"></i> 設定</a>
+			<a th:href="@{/teacher/home}"><i class="bi bi-house"></i> ホーム</a>
+		</div>
+	</header>
+
+	<main>
+		<!-- ===== 左側プロフィールカード ===== -->
+		<section class="profile-card">
+			<p class="greeting">
+				おはようございます。
+				<span th:text="${teacherName}"></span> さん
+			</p>
+
+			<div class="profile-box">
+				<img th:src="@{/login.css/emoji.login.jpg}" alt="Teacher Photo" class="profile-photo">
+				<div class="info">
+					<label>名前</label>
+					<div class="info-box" th:text="${teacherName}"></div>
+
+					<label>先生番号</label>
+					<div class="info-box" th:text="${teacherNumber}"></div>
+				</div>
+			</div>
+
+
+			<hr style="margin: 20px 0;">
+
+
+
+		</section>
+
+
+
+
+		<!-- ===== サイドメニュー（右側） ===== -->
+		<aside class="menu">
+			<a th:href="@{/teacher/schedule}" th:classappend="${active == 'schedule'} ? ' active' : ''"
+				class="menu-link">年間スケジュール📅</a>
+			<a th:href="@{/teacher/timetable}" th:classappend="${active == 'timetable'} ? ' active' : ''"
+				class="menu-link">時間割🟣</a>
+			<a th:href="@{/teacher/notices}" th:classappend="${active == 'notices'} ? ' active' : ''"
+				class="menu-link">お知らせ🔔</a>
+			<a th:href="@{/teacher/reports}" th:classappend="${active == 'reports'} ? ' active' : ''"
+				class="menu-link">報告📨</a>
+	
+		</aside>
+	</main>
+
+	<!-- ===== JavaScript ===== -->
+<!--	<script>-->
+<!--		function toggleMenu(id) {-->
+<!--			const menu = document.getElementById(id);-->
+<!--			const isVisible = menu.style.display === "block";-->
+<!--			document.querySelectorAll(".dropdown-content")-->
+<!--				.forEach(m => m.style.display = "none");-->
+<!--			menu.style.display = isVisible ? "none" : "block";-->
+<!--		}-->
+<!--		/* 🟣 Dark Mode Toggle Script（ここに追加） */-->
+<!--		document.getElementById("darkModeToggle").addEventListener("click", function () {-->
+<!--			document.documentElement.classList.toggle("dark-mode");-->
+<!--		});-->
+<!--	</script>-->
+	<!-- 💡 JSはここだけでOK！ -->
+	<script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>
